@@ -5,6 +5,8 @@ import java.awt.Font;
 import javax.swing.*;
 import javax.swing.table.TableColumn;
 
+import main.Main;
+
 public class ConsultarUI extends JFrame{
 	private JTable tableNotas;
 	private JScrollPane jsp;
@@ -39,8 +41,12 @@ public class ConsultarUI extends JFrame{
 		//Adicionando
 		add(jsp);
 		
+		//Adicionando mainMenuPanel
+		add(Main.mainMenuPanel);
+		
 		setSize(1280,720);
 		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
 		setVisible(true);
 	}
