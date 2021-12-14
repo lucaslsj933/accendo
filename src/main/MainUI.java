@@ -32,6 +32,7 @@ public class MainUI extends JFrame{
 		//Buttons
 		jbAcessar=new JButton("Acessar");
 		jbAcessar.setBounds(1280/2+100,720/2,100,30);
+		jbAcessar.addActionListener(new MainUIButtonsActionListener(0));
 		
 		//Adicionando
 		add(jlTitle);add(jlMatricula);add(jlSenha);
@@ -43,6 +44,7 @@ public class MainUI extends JFrame{
 		//setLocationRelativeTo(null); centraliza na tela
 		setSize(1280,720);
 		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
 		setVisible(true);
 	}
