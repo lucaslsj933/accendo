@@ -6,13 +6,16 @@ import javax.swing.*;
 import javax.swing.table.TableColumn;
 
 import main.Main;
+import mainMenu.MainMenuPanel;
+import mainMenu.MainMenuPanel;
 
 public class ConsultarUI extends JFrame{
 	private JTable tableNotas;
 	private JScrollPane jsp;
+	private MainMenuPanel mainMenuPanel;
 	
 	public ConsultarUI() {
-		super("Accendo - Consultar");
+		super("Accendo - Notas");
 		
 		//Dados e colunas
 		String data[][]= {
@@ -42,7 +45,8 @@ public class ConsultarUI extends JFrame{
 		add(jsp);
 		
 		//Adicionando mainMenuPanel
-		add(Main.mainMenuPanel);
+		mainMenuPanel=new MainMenuPanel();
+		add(mainMenuPanel);
 		
 		setSize(1280,720);
 		setLocationRelativeTo(null);

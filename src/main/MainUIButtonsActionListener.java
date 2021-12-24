@@ -1,6 +1,10 @@
 package main;
 
+import java.awt.Component;
+import java.awt.Window;
 import java.awt.event.*;
+
+import javax.swing.SwingUtilities;
 
 public class MainUIButtonsActionListener implements ActionListener{
 	private int buttonId;
@@ -12,8 +16,8 @@ public class MainUIButtonsActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(buttonId==0) {
-			Main.mainUI.setVisible(false);
-			Main.startConsultar();
+			Window currentFrame = SwingUtilities.windowForComponent((Component) e.getSource());
+			Main.startHomeMenu(currentFrame);
 		}
 	}
 }
