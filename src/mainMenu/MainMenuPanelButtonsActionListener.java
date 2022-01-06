@@ -20,7 +20,10 @@ public class MainMenuPanelButtonsActionListener implements ActionListener{
 			Main.startHomeMenu(currentFrame);
 		else if(buttonId==1)
 			Main.startConsultar(currentFrame);
-		else if(buttonId==2)
+		else if(buttonId==2) {
+			Main.startProfile(currentFrame);
+		}	
+		else if(buttonId==3)
 			Main.startMain(currentFrame);
 	}
 }
