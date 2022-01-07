@@ -1,10 +1,15 @@
 package mainMenu;
 
 import java.awt.Font;
+import java.sql.Connection;
 
 import javax.swing.*;
 
 import main.Main;
+
+import java.sql.*;
+import dbTools.*;
+
 
 public class HomeMenuUI extends JFrame{
 	private MainMenuPanel mainMenuPanel;

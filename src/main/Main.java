@@ -1,9 +1,12 @@
 package main;
 
 import consultar.*;
+import dbTools.DBMain;
 import mainMenu.*;
 import profile.*;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import java.awt.*;
 
 //TODO: Colocar nome da tela na interface do usuário
@@ -50,8 +53,17 @@ public class Main {
 		if(!isProfileOnRAM) {
 			profileUI=new ProfileUI();
 			isProfileOnRAM=true;
+			
+			currentFrame.setVisible(false);
+			profileUI.setVisible(true);
+			
+			//DB TESTE
+			DBMain dbMain=new DBMain();
+			dbMain.profileLoad("Lucas");
 		}
-		currentFrame.setVisible(false);
-		profileUI.setVisible(true);
+		else {
+			currentFrame.setVisible(false);
+			profileUI.setVisible(true);
+		}
 	}
 }
