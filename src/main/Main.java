@@ -16,7 +16,8 @@ public class Main {
 	public static HomeMenuUI homeMenuUI;
 	public static ConsultarUI consultarUI;
 	public static ProfileUI profileUI;
-		
+	public static DBMain dbMain=new DBMain();
+	
 	//isOn
 	public static boolean isHomeMenuOnRAM=false;
 	public static boolean isConsultarOnRAM=false;
@@ -44,21 +45,25 @@ public class Main {
 		if(!isConsultarOnRAM) {
 			consultarUI=new ConsultarUI();
 			isConsultarOnRAM=true;
+			currentFrame.setVisible(false);
+			consultarUI.setVisible(true);
+			//Carregamento dos Dados do BD
+			dbMain.consultarLoad("1111");
 		}
-		currentFrame.setVisible(false);
-		consultarUI.setVisible(true);
+		else {
+			currentFrame.setVisible(false);
+			consultarUI.setVisible(true);
+		}
 	}
 	
 	public static void startProfile(Window currentFrame) {
 		if(!isProfileOnRAM) {
 			profileUI=new ProfileUI();
 			isProfileOnRAM=true;
-			
 			currentFrame.setVisible(false);
 			profileUI.setVisible(true);
 			
-			//DB TESTE
-			DBMain dbMain=new DBMain();
+			//Carregamento dos dados do BD
 			dbMain.profileLoad("Lucas");
 		}
 		else {

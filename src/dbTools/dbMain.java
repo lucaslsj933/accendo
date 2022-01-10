@@ -36,5 +36,9 @@ public class DBMain {
 		ProfileLoadThread plt1= new ProfileLoadThread("Lucas");
 		plt1.start();
 	}
-
+	
+	public void consultarLoad(String idInput) {
+		ConsultarLoadThread clt1=new ConsultarLoadThread("1111");
+		clt1.start();
+	}
 }
