@@ -19,11 +19,11 @@ public class ConsultarUI extends JFrame{
 		
 		//Dados e colunas
 		String data[][]= {
-			{"Programação Orientada a Objeto I","9,0","8,5"},
-			{"Matéria 2","9,0","8,5"},
-			{"Matéria 3","9,0","8,5"},
-			{"Matéria 4","9,0","8,5"},
-			{"Matéria 5","9,0","8,5"}
+			{"Matéria 1","",""},
+			{"Matéria 2","",""},
+			{"Matéria 3","",""},
+			{"Matéria 4","",""},
+			{"Matéria 5","",""}
 		};
 		String colunas[]={"Matéria","TA1","TA2"};
 		
@@ -53,5 +53,29 @@ public class ConsultarUI extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
 		setVisible(true);
+	}
+
+	public JTable getTableNotas() {
+		return tableNotas;
+	}
+
+	public void setTableNotas(JTable tableNotas) {
+		this.tableNotas = tableNotas;
+	}
+
+	public JScrollPane getJsp() {
+		return jsp;
+	}
+
+	public void setJsp(JScrollPane jsp) {
+		this.jsp = jsp;
+	}
+
+	public MainMenuPanel getMainMenuPanel() {
+		return mainMenuPanel;
+	}
+
+	public void setMainMenuPanel(MainMenuPanel mainMenuPanel) {
+		this.mainMenuPanel = mainMenuPanel;
 	}
 }
