@@ -20,7 +20,6 @@ public class DBMain {
 			String sql="select nome from teste where testeId=1;";
 			PreparedStatement ps1=conexao.prepareStatement(sql);
 			ResultSet rs1=ps1.executeQuery();
-			//LEMBRE-SE QUE O NEXT Ã‰ NECESSÃ?RIO!
 			rs1.next();
 			String nome=rs1.getString(1);
 			JOptionPane.showMessageDialog(null,"Nome: "+nome);
