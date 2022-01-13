@@ -8,13 +8,13 @@ public class MateriaDoAluno {
 	private int idMateria;
 	private String aluno_idAluno;
 	private String nomeMateria;
-	private float[] valoresTas=new float[3];
+	private float[] valoresTas=new float[4];
 	
 	public MateriaDoAluno(int idMateria,String aluno_idAluno) {
 		this.idMateria=idMateria;
 		this.aluno_idAluno=aluno_idAluno;
 		
-		for(int i=0;i<3;i++)
+		for(int i=0;i<4;i++)
 			valoresTas[i]=-1;
 	}
 	
