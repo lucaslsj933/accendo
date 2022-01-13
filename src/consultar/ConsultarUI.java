@@ -20,13 +20,13 @@ public class ConsultarUI extends JFrame{
 		
 		//Dados e colunas
 		String data[][]= {
-			{"Matéria 1","",""},
-			{"Matéria 2","",""},
-			{"Matéria 3","",""},
-			{"Matéria 4","",""},
-			{"Matéria 5","",""}
+			{"Matéria 1","","","",""},
+			{"Matéria 2","","","",""},
+			{"Matéria 3","","","",""},
+			{"Matéria 4","","","",""},
+			{"Matéria 5","","","",""}
 		};
-		String colunas[]={"Matéria","TA1","TA2"};
+		String colunas[]={"Matéria","TA1","TA2","TA3","TA4"};
 		
 		//Iniciando JTable,tamanho das colunas e jsp
 		tableNotas=new JTable(data,colunas);
@@ -38,9 +38,10 @@ public class ConsultarUI extends JFrame{
 		TableColumn tb0=tableNotas.getColumnModel().getColumn(0);
 		TableColumn tb1=tableNotas.getColumnModel().getColumn(1);
 		TableColumn tb2=tableNotas.getColumnModel().getColumn(2);
-		tb0.setMaxWidth(300);
-		tb1.setMaxWidth(425);
-		tb2.setMaxWidth(425);
+		TableColumn tb3=tableNotas.getColumnModel().getColumn(3);
+		TableColumn tb4=tableNotas.getColumnModel().getColumn(4);
+		tb0.setMaxWidth(800);
+		tb1.setMaxWidth(100); tb2.setMaxWidth(100); tb3.setMaxWidth(100); tb4.setMaxWidth(100);
 		
 		jsp = new JScrollPane(tableNotas);
 		jsp.setBounds(50,50,1150,550);
