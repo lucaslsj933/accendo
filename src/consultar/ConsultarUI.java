@@ -13,6 +13,7 @@ public class ConsultarUI extends JFrame{
 	private JTable tableNotas;
 	private JScrollPane jsp;
 	private MainMenuPanel mainMenuPanel;
+	private Font bodyFont=new Font("Arial", Font.PLAIN, 20); //Font.PLAIN
 	
 	public ConsultarUI() {
 		super("Accendo - Notas");
@@ -29,6 +30,10 @@ public class ConsultarUI extends JFrame{
 		
 		//Iniciando JTable,tamanho das colunas e jsp
 		tableNotas=new JTable(data,colunas);
+		
+		tableNotas.getTableHeader().setFont(bodyFont);
+		tableNotas.setFont(bodyFont);
+		tableNotas.setRowHeight(30);
 		
 		TableColumn tb0=tableNotas.getColumnModel().getColumn(0);
 		TableColumn tb1=tableNotas.getColumnModel().getColumn(1);
