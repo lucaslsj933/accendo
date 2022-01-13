@@ -22,19 +22,19 @@
 DROP TABLE IF EXISTS `aluno`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE IF NOT EXISTS `accendoDB`.`aluno` (
-  `idAluno` VARCHAR(50) NOT NULL,
-  `passwordAluno` VARCHAR(45) NULL,
-  `nome` VARCHAR(45) NULL,
-  `sexo` VARCHAR(1) NULL,
-  `idade` INT NULL,
-  `etapa` VARCHAR(45) NULL,
-  `serie` INT NULL,
-  `rg` VARCHAR(9) NULL,
-  `cpf` VARCHAR(11) NULL,
-  `flag` TINYINT NULL,
-  PRIMARY KEY (`idAluno`))
-ENGINE = InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `aluno` (
+  `idAluno` varchar(50) NOT NULL,
+  `passwordAluno` varchar(45) DEFAULT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  `sexo` varchar(1) DEFAULT NULL,
+  `idade` int DEFAULT NULL,
+  `etapa` varchar(45) DEFAULT NULL,
+  `serie` int DEFAULT NULL,
+  `rg` varchar(9) DEFAULT NULL,
+  `cpf` varchar(11) DEFAULT NULL,
+  `flag` tinyint DEFAULT NULL,
+  PRIMARY KEY (`idAluno`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ ENGINE = InnoDB DEFAULT CHARSET=utf8mb3;
 
 LOCK TABLES `aluno` WRITE;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES ('1111','12345','Lucas Santos de Jesus','M',21,'Médio',9,'111111111','11111111111',1);
+INSERT INTO `aluno` VALUES ('1111','12345','Lucas Santos de Jesus','M',21,'Médio',9,'111111111','11111111111',1),('2222','12345','Gabriel Ferreira','M',20,'Médio',9,'222222222','22222222222',1);
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +89,7 @@ CREATE TABLE `nota` (
   KEY `fk_nota_aluno1_idx` (`aluno_idAluno`),
   CONSTRAINT `fk_nota_aluno1` FOREIGN KEY (`aluno_idAluno`) REFERENCES `aluno` (`idAluno`),
   CONSTRAINT `fk_nota_materia` FOREIGN KEY (`materia_idMateria`) REFERENCES `materia` (`idMateria`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `nota` (
 
 LOCK TABLES `nota` WRITE;
 /*!40000 ALTER TABLE `nota` DISABLE KEYS */;
-INSERT INTO `nota` VALUES (1,9.5,1,1,'1111'),(2,8,1,2,'1111'),(3,8.5,2,1,'1111'),(4,8.5,2,2,'1111'),(5,9,3,1,'1111'),(6,10,4,1,'1111'),(7,9,3,2,'1111'),(8,8,4,2,'1111'),(9,10,1,3,'1111'),(10,9,2,3,'1111'),(11,9,1,4,'1111'),(12,8,2,4,'1111'),(13,9,1,5,'1111'),(14,8,2,5,'1111'),(15,10,3,3,'1111'),(16,9,4,3,'1111');
+INSERT INTO `nota` VALUES (1,9.5,1,1,'1111'),(2,8,1,2,'1111'),(3,8.5,2,1,'1111'),(4,8.5,2,2,'1111'),(5,9,3,1,'1111'),(6,10,4,1,'1111'),(7,9,3,2,'1111'),(8,8,4,2,'1111'),(9,10,1,3,'1111'),(10,9,2,3,'1111'),(11,9,1,4,'1111'),(12,8,2,4,'1111'),(13,9,1,5,'1111'),(14,8,2,5,'1111'),(15,10,3,3,'1111'),(16,9,4,3,'1111'),(17,9,1,1,'2222'),(18,8,2,1,'2222'),(19,10,1,2,'2222'),(20,9,2,2,'2222');
 /*!40000 ALTER TABLE `nota` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,4 +143,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-13 18:09:06
+-- Dump completed on 2022-01-13 20:06:41
