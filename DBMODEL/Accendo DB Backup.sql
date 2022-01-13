@@ -22,18 +22,19 @@
 DROP TABLE IF EXISTS `aluno`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `aluno` (
-  `idAluno` varchar(50) NOT NULL,
-  `nome` varchar(45) DEFAULT NULL,
-  `sexo` varchar(1) DEFAULT NULL,
-  `idade` int DEFAULT NULL,
-  `etapa` varchar(45) DEFAULT NULL,
-  `serie` int DEFAULT NULL,
-  `rg` varchar(9) DEFAULT NULL,
-  `cpf` varchar(11) DEFAULT NULL,
-  `flag` tinyint DEFAULT NULL,
-  PRIMARY KEY (`idAluno`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE IF NOT EXISTS `accendoDB`.`aluno` (
+  `idAluno` VARCHAR(50) NOT NULL,
+  `passwordAluno` VARCHAR(45) NULL,
+  `nome` VARCHAR(45) NULL,
+  `sexo` VARCHAR(1) NULL,
+  `idade` INT NULL,
+  `etapa` VARCHAR(45) NULL,
+  `serie` INT NULL,
+  `rg` VARCHAR(9) NULL,
+  `cpf` VARCHAR(11) NULL,
+  `flag` TINYINT NULL,
+  PRIMARY KEY (`idAluno`))
+ENGINE = InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +43,7 @@ CREATE TABLE `aluno` (
 
 LOCK TABLES `aluno` WRITE;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES ('1111','Lucas Santos de Jesus','M',21,'Médio',9,'111111111','11111111111',1);
+INSERT INTO `aluno` VALUES ('1111','12345','Lucas Santos de Jesus','M',21,'Médio',9,'111111111','11111111111',1);
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 

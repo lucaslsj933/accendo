@@ -6,6 +6,8 @@ import java.awt.event.*;
 
 import javax.swing.SwingUtilities;
 
+import dbTools.LoginThread;
+
 public class MainUIButtonsActionListener implements ActionListener{
 	private int buttonId;
 	
@@ -16,8 +18,9 @@ public class MainUIButtonsActionListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(buttonId==0) {
-			Window currentFrame = SwingUtilities.windowForComponent((Component) e.getSource());
-			Main.startHomeMenu(currentFrame);
+			Main.dbMain.loginStart();
+			//Window currentFrame = SwingUtilities.windowForComponent((Component) e.getSource());
+			//Main.startHomeMenu(currentFrame);
 		}
 	}
 }

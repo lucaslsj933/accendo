@@ -31,13 +31,13 @@ public class ProfileLoadThread extends Thread{
 			int idade,serie;
 			char sexo;
 			idAluno=rs1.getString(1);
-			nome=rs1.getString(2);
-			sexo=rs1.getString(3).charAt(0);
-			idade=rs1.getInt(4);
-			etapa=rs1.getString(5);
-			serie=rs1.getInt(6);
-			rg=rs1.getString(7);
-			cpf=rs1.getString(8);
+			nome=rs1.getString(3);
+			sexo=rs1.getString(4).charAt(0);
+			idade=rs1.getInt(5);
+			etapa=rs1.getString(6);
+			serie=rs1.getInt(7);
+			rg=rs1.getString(8);
+			cpf=rs1.getString(9);
 			
 			//Inserindo na UI
 			Main.profileUI.getJlNameInput().setText(nome);
