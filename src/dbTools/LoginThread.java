@@ -24,6 +24,7 @@ public class LoginThread extends Thread{
 			ps.setString(1,idAluno); ps.setString(2,password);
 			rs=ps.executeQuery();
 			if(rs.next()) {
+				Main.mainUI.getJpfSenha().setText("");;
 				Main.startHomeMenu(Main.mainUI);
 			}
 			else {
