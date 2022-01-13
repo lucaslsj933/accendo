@@ -9,20 +9,14 @@ import javax.swing.JOptionPane;
 import main.Main;
 
 public class ProfileLoadThread extends Thread{
-	String nomeInput;
-	
-	public ProfileLoadThread(String nomeInput) {
-		super();
-		this.nomeInput=nomeInput;
-	}
-	
+
 	public void run() {
 		try {
 			Connection conexao;
 			conexao=ConnectionFactory.createConnection();
-			String sql="select * from aluno where nome like concat('%',?,'%') and flag!=0;";
+			String sql="select * from aluno where idAluno=? and flag!=0;";
 			PreparedStatement ps1=conexao.prepareStatement(sql);
-			ps1.setString(1, nomeInput);
+			ps1.setString(1, Main.dbMain.getIdAluno());
 			ResultSet rs1=ps1.executeQuery();
 			//Dados do Aluno
 			//LEMBRE-SE QUE O NEXT É NECESSÁRIO!

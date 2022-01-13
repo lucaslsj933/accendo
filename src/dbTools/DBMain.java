@@ -11,6 +11,8 @@ import javax.swing.*;
 import main.Main;
 
 public class DBMain {
+	private String idAluno="";
+	
 	public DBMain() {
 		//DBTESTE
 		/*
@@ -37,12 +39,20 @@ public class DBMain {
 	}
 	
 	public void profileLoad(String nomeInput) {
-		ProfileLoadThread plt1= new ProfileLoadThread("Lucas");
+		ProfileLoadThread plt1= new ProfileLoadThread();
 		plt1.start();
 	}
 	
 	public void consultarLoad(String idInput) {
-		ConsultarLoadThread clt1=new ConsultarLoadThread("1111");
+		ConsultarLoadThread clt1=new ConsultarLoadThread();
 		clt1.start();
+	}
+
+	public String getIdAluno() {
+		return idAluno;
+	}
+
+	public void setIdAluno(String idAluno) {
+		this.idAluno = idAluno;
 	}
 }

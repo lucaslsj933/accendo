@@ -16,18 +16,13 @@ public class ConsultarLoadThread extends Thread{
 	ArrayList<NotaClass> listaNC=new ArrayList<NotaClass>();
 	ArrayList<MateriaDoAluno> listaMDA=new ArrayList<MateriaDoAluno>(); 
 	
-	public ConsultarLoadThread(String idInput) {
-		super();
-		this.idInput=idInput;
-	}
-	
 	public void run() {
 		try {
 			Connection conexao;
 			conexao=ConnectionFactory.createConnection();
 			String sql="select * from nota as n inner join materia as m on(n.materia_idMateria=m.idMateria) where aluno_idAluno=?";
 			PreparedStatement ps=conexao.prepareStatement(sql);
-			ps.setString(1,idInput);
+			ps.setString(1,Main.dbMain.getIdAluno());
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				//Inicializando com valor e TA
