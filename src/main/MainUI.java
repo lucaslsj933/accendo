@@ -5,7 +5,8 @@ import java.awt.Font;
 
 public class MainUI extends JFrame{
 	private JLabel jlTitle,jlMatricula,jlSenha;
-	private JTextField jtfMatricula,jtfSenha;
+	private JPasswordField jpfSenha;
+	private JTextField jtfMatricula;
 	private JButton jbAcessar;
 	
 	public MainUI() {
@@ -26,8 +27,8 @@ public class MainUI extends JFrame{
 		jtfMatricula=new JTextField();
 		jtfMatricula.setBounds(1280/2,720/2-100,200,30);
 		
-		jtfSenha=new JTextField();
-		jtfSenha.setBounds(1280/2,720/2-50,200,30);
+		jpfSenha=new JPasswordField();
+		jpfSenha.setBounds(1280/2,720/2-50,200,30);
 		
 		//Buttons
 		jbAcessar=new JButton("Acessar");
@@ -37,7 +38,7 @@ public class MainUI extends JFrame{
 		//Adicionando
 		add(jlTitle);add(jlMatricula);add(jlSenha);
 		
-		add(jtfMatricula);add(jtfSenha);
+		add(jtfMatricula);add(jpfSenha);
 		
 		add(jbAcessar);
 		
@@ -48,4 +49,54 @@ public class MainUI extends JFrame{
 		setLayout(null);
 		setVisible(true);
 	}
+
+	public JLabel getJlTitle() {
+		return jlTitle;
+	}
+
+	public void setJlTitle(JLabel jlTitle) {
+		this.jlTitle = jlTitle;
+	}
+
+	public JLabel getJlMatricula() {
+		return jlMatricula;
+	}
+
+	public void setJlMatricula(JLabel jlMatricula) {
+		this.jlMatricula = jlMatricula;
+	}
+
+	public JLabel getJlSenha() {
+		return jlSenha;
+	}
+
+	public void setJlSenha(JLabel jlSenha) {
+		this.jlSenha = jlSenha;
+	}
+
+	public JPasswordField getJpfSenha() {
+		return jpfSenha;
+	}
+
+	public void setJpfSenha(JPasswordField jpfSenha) {
+		this.jpfSenha = jpfSenha;
+	}
+
+	public JTextField getJtfMatricula() {
+		return jtfMatricula;
+	}
+
+	public void setJtfMatricula(JTextField jtfMatricula) {
+		this.jtfMatricula = jtfMatricula;
+	}
+
+	public JButton getJbAcessar() {
+		return jbAcessar;
+	}
+
+	public void setJbAcessar(JButton jbAcessar) {
+		this.jbAcessar = jbAcessar;
+	}
+	
+	
 }

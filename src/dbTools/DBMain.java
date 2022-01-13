@@ -31,6 +31,11 @@ public class DBMain {
 		*/
 	}
 	
+	public void loginStart() {
+		LoginThread lt=new LoginThread();
+		lt.start();
+	}
+	
 	public void profileLoad(String nomeInput) {
 		ProfileLoadThread plt1= new ProfileLoadThread("Lucas");
 		plt1.start();
