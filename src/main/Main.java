@@ -71,4 +71,17 @@ public class Main {
 			profileUI.setVisible(true);
 		}
 	}
+	
+	public static void resetAll() {
+		//Lembre-se que a tela de login ainda continuará na RAM
+		dbMain=null;
+		dbMain=new DBMain();
+		homeMenuUI=null;
+		consultarUI=null;
+		profileUI=null;
+		//isOn
+		isHomeMenuOnRAM=false;
+		isConsultarOnRAM=false;
+		isProfileOnRAM=false;
+	}
 }
