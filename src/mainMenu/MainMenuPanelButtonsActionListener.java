@@ -22,7 +22,10 @@ public class MainMenuPanelButtonsActionListener implements ActionListener{
 			Main.startConsultar(currentFrame);
 		else if(buttonId==2) 
 			Main.startProfile(currentFrame);
-		else if(buttonId==3)
+		else if(buttonId==3) {
 			Main.startMain(currentFrame);
+			Main.resetAll();
+		}
+			
 	}
 }
