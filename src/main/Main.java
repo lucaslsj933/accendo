@@ -64,7 +64,7 @@ public class Main {
 			profileUI.setVisible(true);
 			
 			//Carregamento dos dados do BD
-			dbMain.profileLoad("Lucas");
+			dbMain.profileLoad();
 		}
 		else {
 			currentFrame.setVisible(false);
