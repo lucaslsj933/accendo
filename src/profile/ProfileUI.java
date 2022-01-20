@@ -14,7 +14,7 @@ public class ProfileUI extends JFrame{
 	
 	private MainMenuPanel mainMenuPanel;
 	private JLabel profileImg,jlName,jlNameInput,jlSexo,jlSexoInput,jlIdade,jlIdadeInput,jlRG,jlRGInput,jlCpf,jlCpfInput,jlSerie,
-		jlSerieInput,jlEtapa,jlEtapaInput;
+		jlSerieInput,jlEtapa,jlEtapaInput,jlTurma,jlTurmaInput;
 	
 	//Lembre-se que o jlInput fica 5 pixels depois da label não-input
 	//Separação vertical : Tamanho da fonte (20) + 10
@@ -69,13 +69,19 @@ public class ProfileUI extends JFrame{
 		jlEtapa.setBounds(400,250,68,30);
 		jlEtapaInput.setBounds(471,250,127,30);
 		
+		jlTurma=new JLabel("Turma:");
+		jlTurmaInput=new JLabel("");
+		jlTurma.setFont(boldBodyFont); jlTurmaInput.setFont(bodyFont);
+		jlTurma.setBounds(400,280,68,30);
+		jlTurmaInput.setBounds(479,280,127,30);
+		
 		//Adicionando
 		getContentPane().add(profileImg);
 		
 		getContentPane().add(jlName);getContentPane().add(jlNameInput);getContentPane().add(jlSexo);getContentPane().add(jlSexoInput);
 		getContentPane().add(jlIdade); getContentPane().add(jlIdadeInput); getContentPane().add(jlRG); getContentPane().add(jlRGInput);
 		getContentPane().add(jlCpf);getContentPane().add(jlCpfInput); getContentPane().add(jlSerie); getContentPane().add(jlSerieInput);
-		getContentPane().add(jlEtapa); getContentPane().add(jlEtapaInput);
+		getContentPane().add(jlEtapa); getContentPane().add(jlEtapaInput); getContentPane().add(jlTurma); getContentPane().add(jlTurmaInput);
 		
 		//Adicionando mainMenuPanel
 		mainMenuPanel=new MainMenuPanel();
@@ -230,5 +236,21 @@ public class ProfileUI extends JFrame{
 
 	public void setJlEtapaInput(JLabel jlEtapaInput) {
 		this.jlEtapaInput = jlEtapaInput;
+	}
+
+	public JLabel getJlTurma() {
+		return jlTurma;
+	}
+
+	public void setJlTurma(JLabel jlTurma) {
+		this.jlTurma = jlTurma;
+	}
+
+	public JLabel getJlTurmaInput() {
+		return jlTurmaInput;
+	}
+
+	public void setJlTurmaInput(JLabel jlTurmaInput) {
+		this.jlTurmaInput = jlTurmaInput;
 	}
 }

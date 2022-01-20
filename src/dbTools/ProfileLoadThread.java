@@ -24,19 +24,18 @@ public class ProfileLoadThread extends Thread{
 			//Dados do Aluno
 			//LEMBRE-SE QUE O NEXT É NECESSÁRIO!
 			rs1.next();
-			String idPessoa,nome,rg,cpf,etapa;
+			String idPessoa,nome,rg,cpf,etapa,turma;
 			int idade,serie;
 			char sexo;
 			idPessoa=rs1.getString(1);
 			nome=rs1.getString(4);
 			sexo=rs1.getString(5).charAt(0);
 			idade=rs1.getInt(6);
-			//REPLACE
 			etapa=rs1.getString(12);
 			serie=rs1.getInt(13);
-			
 			rg=rs1.getString(7);
 			cpf=rs1.getString(8);
+			turma=rs1.getString(14);
 			
 			//Inserindo na UI
 			Main.profileUI.getJlNameInput().setText(nome);
@@ -46,6 +45,7 @@ public class ProfileLoadThread extends Thread{
 			Main.profileUI.getJlCpfInput().setText(cpf);
 			Main.profileUI.getJlSerieInput().setText(String.valueOf(serie)+"ª");
 			Main.profileUI.getJlEtapaInput().setText(etapa);
+			Main.profileUI.getJlTurmaInput().setText(turma);
 			
 			conexao.close();
 		}
