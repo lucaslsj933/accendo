@@ -26,7 +26,7 @@ public class MainUI extends JFrame{
 		//TextFields
 		jtfMatricula=new JTextField();
 		jtfMatricula.setBounds(1280/2,720/2-100,200,30);
-		jtfMatricula.setText("1111");
+		jtfMatricula.setText("A1111");
 		
 		jpfSenha=new JPasswordField();
 		jpfSenha.setBounds(1280/2,720/2-50,200,30);

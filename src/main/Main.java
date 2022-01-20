@@ -27,8 +27,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		mainUI=new MainUI();
-		mainUI.setVisible(false);
-		InsertNotasUI insertNotasUI=new InsertNotasUI();
+		//mainUI.setVisible(false);
+		//InsertNotasUI insertNotasUI=new InsertNotasUI();
 		
 	}
 	

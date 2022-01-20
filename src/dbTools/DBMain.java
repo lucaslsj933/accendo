@@ -11,7 +11,7 @@ import javax.swing.*;
 import main.Main;
 
 public class DBMain {
-	private String idAluno="";
+	private String idPessoa="";
 	
 	public DBMain() {
 		//DBTESTE
@@ -48,11 +48,11 @@ public class DBMain {
 		clt1.start();
 	}
 
-	public String getIdAluno() {
-		return idAluno;
+	public String getIdPessoa() {
+		return idPessoa;
 	}
 
-	public void setIdAluno(String idAluno) {
-		this.idAluno = idAluno;
+	public void setIdPessoa(String idPessoa) {
+		this.idPessoa = idPessoa;
 	}
 }
