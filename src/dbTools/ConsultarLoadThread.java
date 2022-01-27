@@ -20,17 +20,18 @@ public class ConsultarLoadThread extends Thread{
 		try {
 			Connection conexao;
 			conexao=ConnectionFactory.createConnection();
-			String sql="select * from nota as n inner join materia as m on(n.materia_idMateria=m.idMateria) where aluno_idAluno=?";
+			String sql="select * from nota as n inner join materia as m on(n.materia_idMateria=m.idMateria) where pessoa_idPessoa=?";
 			PreparedStatement ps=conexao.prepareStatement(sql);
-			ps.setString(1,Main.dbMain.getIdAluno());
+			ps.setString(1,Main.dbMain.getIdPessoa());
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				//Inicializando com valor e TA
 				NotaClass nc=new NotaClass(rs.getFloat(2),rs.getInt(3));
 				nc.setMateria_idMateria(rs.getInt(4));
 				nc.setAluno_idAluno(rs.getString(5));
-				nc.setIdMateria(rs.getInt(6));
-				nc.setNomeMateria(rs.getString(7));
+				nc.setPessoa_idPessoa(rs.getString(6));
+				nc.setIdMateria(rs.getInt(7));
+				nc.setNomeMateria(rs.getString(8));
 				
 				CheckIfExistsAndAdd(nc);
 				//Inserindo na UI

@@ -7,6 +7,8 @@ import profile.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import professor.insert.*;
+
 import java.awt.*;
 
 //TODO: Colocar nome da tela na interface do usuário
@@ -25,6 +27,9 @@ public class Main {
 	
 	public static void main(String[] args) {
 		mainUI=new MainUI();
+		//mainUI.setVisible(false);
+		//InsertNotasUI insertNotasUI=new InsertNotasUI();
+		
 	}
 	
 	public static void startMain(Window currentFrame) {

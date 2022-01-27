@@ -12,22 +12,23 @@ public class LoginThread extends Thread{
 
 	public void run() {
 		try {
-			String idAluno,password,sql;
+			String idPessoa,password,sql;
 			PreparedStatement ps;
 			ResultSet rs;
 			
-			idAluno=Main.mainUI.getJtfMatricula().getText();
+			idPessoa=Main.mainUI.getJtfMatricula().getText();
 			password=String.valueOf(Main.mainUI.getJpfSenha().getPassword());
 			Connection conexao=ConnectionFactory.createConnection();
-			sql="select idAluno,passwordAluno from aluno where idAluno=? and passwordAluno=?";
+			sql="select idPessoa,passwordPessoa,tipoPessoa from pessoa where idPessoa=? and passwordPessoa=?";
 			ps=conexao.prepareStatement(sql);
-			ps.setString(1,idAluno); ps.setString(2,password);
+			ps.setString(1,idPessoa); ps.setString(2,password);
 			rs=ps.executeQuery();
 			if(rs.next()) {
-				Main.dbMain.setIdAluno(idAluno);
+				Main.dbMain.setIdPessoa(idPessoa);
+				Main.dbMain.setTipoPessoa(rs.getString(3));
 				Main.startHomeMenu(Main.mainUI);
 				Main.mainUI.getJtfMatricula().setText("");
-				Main.mainUI.getJpfSenha().setText("");;
+				Main.mainUI.getJpfSenha().setText("");
 			}
 			else {
 				JOptionPane.showMessageDialog(null,"Matrícula ou senha incorreta!");

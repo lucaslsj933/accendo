@@ -15,7 +15,7 @@ public class ConnectionFactory {
 	}
 	
 	public static Connection createConnection() throws SQLException {
-		String url="jdbc:mysql://localhost:3306/accendoDB"; //Nome do DB
+		String url="jdbc:mysql://localhost:3306/accendoDBNEW"; //Nome do DB
 		String user="root";
 		String password="12345";
 		
