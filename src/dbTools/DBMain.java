@@ -12,6 +12,7 @@ import main.Main;
 
 public class DBMain {
 	private String idPessoa="";
+	private String tipoPessoa="";
 	
 	public DBMain() {
 		//DBTESTE
@@ -54,5 +55,13 @@ public class DBMain {
 
 	public void setIdPessoa(String idPessoa) {
 		this.idPessoa = idPessoa;
+	}
+
+	public String getTipoPessoa() {
+		return tipoPessoa;
+	}
+
+	public void setTipoPessoa(String tipoPessoa) {
+		this.tipoPessoa = tipoPessoa;
 	}
 }
