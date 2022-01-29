@@ -29,4 +29,35 @@ public class MainMenuPanel extends JPanel{
 		setVisible(true);
 	}
 
+	public JButton getJbInicio() {
+		return jbInicio;
+	}
+
+	public void setJbInicio(JButton jbInicio) {
+		this.jbInicio = jbInicio;
+	}
+
+	public JButton getJbNotas() {
+		return jbNotas;
+	}
+
+	public void setJbNotas(JButton jbNotas) {
+		this.jbNotas = jbNotas;
+	}
+
+	public JButton getJbPerfil() {
+		return jbPerfil;
+	}
+
+	public void setJbPerfil(JButton jbPerfil) {
+		this.jbPerfil = jbPerfil;
+	}
+
+	public JButton getJbSair() {
+		return jbSair;
+	}
+
+	public void setJbSair(JButton jbSair) {
+		this.jbSair = jbSair;
+	}
 }

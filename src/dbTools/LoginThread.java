@@ -26,9 +26,13 @@ public class LoginThread extends Thread{
 			if(rs.next()) {
 				Main.dbMain.setIdPessoa(idPessoa);
 				Main.dbMain.setTipoPessoa(rs.getString(3));
-				Main.startHomeMenu(Main.mainUI);
 				Main.mainUI.getJtfMatricula().setText("");
 				Main.mainUI.getJpfSenha().setText("");
+				
+				if(Main.dbMain.getTipoPessoa().equals("p"))
+					Main.startProfHomeMenu(Main.mainUI);
+				else
+					Main.startHomeMenu(Main.mainUI);
 			}
 			else {
 				JOptionPane.showMessageDialog(null,"Matrícula ou senha incorreta!");

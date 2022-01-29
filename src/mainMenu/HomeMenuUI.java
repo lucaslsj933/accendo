@@ -35,4 +35,22 @@ public class HomeMenuUI extends JFrame{
 		setLayout(null);
 		setVisible(true);
 	}
+
+	public MainMenuPanel getMainMenuPanel() {
+		return mainMenuPanel;
+	}
+
+	public void setMainMenuPanel(MainMenuPanel mainMenuPanel) {
+		this.mainMenuPanel = mainMenuPanel;
+	}
+
+	public JLabel getJlWelcome() {
+		return jlWelcome;
+	}
+
+	public void setJlWelcome(JLabel jlWelcome) {
+		this.jlWelcome = jlWelcome;
+	}
+	
+	
 }
