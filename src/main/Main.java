@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import professor.insert.*;
+import professor.mainMenu.*;
 
 import java.awt.*;
 
@@ -19,6 +20,9 @@ public class Main {
 	public static ConsultarUI consultarUI;
 	public static ProfileUI profileUI;
 	public static DBMain dbMain=new DBMain();
+	
+	//PROFESSOR
+	public static ProfHomeMenuUI profHomeMenuUI;
 	
 	//isOn
 	public static boolean isHomeMenuOnRAM=false;
@@ -75,6 +79,12 @@ public class Main {
 			currentFrame.setVisible(false);
 			profileUI.setVisible(true);
 		}
+	}
+	
+	//PROFESSOR
+	
+	public static void startProfHomeMenu(Window currentFrame) {
+		profHomeMenuUI=new ProfHomeMenuUI();
 	}
 	
 	public static void resetAll() {
