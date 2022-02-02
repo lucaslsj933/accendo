@@ -26,6 +26,13 @@ public class MainMenuPanelButtonsActionListener implements ActionListener{
 			Main.startMain(currentFrame);
 			Main.resetAll();
 		}
-			
+	}
+
+	public int getButtonId() {
+		return buttonId;
+	}
+
+	public void setButtonId(int buttonId) {
+		this.buttonId = buttonId;
 	}
 }

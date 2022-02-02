@@ -1,5 +1,6 @@
 package professor.mainMenu;
 
+import main.Main;
 import mainMenu.*;
 
 public class ProfHomeMenuUI extends HomeMenuUI{
