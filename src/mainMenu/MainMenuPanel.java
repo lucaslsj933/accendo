@@ -2,14 +2,16 @@ package mainMenu;
 
 import javax.swing.*;
 
-public class MainMenuPanel extends JPanel{
+public class MainMenuPanel extends MainMenuPanelMasterClass{
 	JButton jbInicio,jbNotas,jbPerfil,jbSair;
 	
 	public MainMenuPanel() {
+		super();
+
 		jbInicio=new JButton("Início");
 		jbInicio.setBounds(0,100,100,30);
 		jbInicio.addActionListener(new MainMenuPanelButtonsActionListener(0));
-		
+
 		jbNotas=new JButton("Notas");
 		jbNotas.setBounds(100,100,100,30);
 		jbNotas.addActionListener(new MainMenuPanelButtonsActionListener(1));
@@ -24,17 +26,6 @@ public class MainMenuPanel extends JPanel{
 		
 		//Adicionando
 		add(jbInicio);add(jbNotas);add(jbPerfil);add(jbSair);
-		
-		setBounds(0,0,1280,50);
-		setVisible(true);
-	}
-
-	public JButton getJbInicio() {
-		return jbInicio;
-	}
-
-	public void setJbInicio(JButton jbInicio) {
-		this.jbInicio = jbInicio;
 	}
 
 	public JButton getJbNotas() {
@@ -51,13 +42,5 @@ public class MainMenuPanel extends JPanel{
 
 	public void setJbPerfil(JButton jbPerfil) {
 		this.jbPerfil = jbPerfil;
-	}
-
-	public JButton getJbSair() {
-		return jbSair;
-	}
-
-	public void setJbSair(JButton jbSair) {
-		this.jbSair = jbSair;
 	}
 }

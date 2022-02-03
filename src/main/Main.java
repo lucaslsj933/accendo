@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import professor.insert.*;
 import professor.mainMenu.*;
+import professor.profile.*;
 
 import java.awt.*;
 
@@ -23,6 +24,7 @@ public class Main {
 	
 	//PROFESSOR
 	public static ProfHomeMenuUI profHomeMenuUI;
+	public static ProfProfileUI profProfileUI; 
 	
 	//isOn
 	public static boolean isHomeMenuOnRAM=false;
@@ -86,6 +88,13 @@ public class Main {
 	public static void startProfHomeMenu(Window currentFrame) {
 		profHomeMenuUI=new ProfHomeMenuUI();
 	}
+	
+	public static void startProfProfile(Window currentFrame) {
+		profProfileUI=new ProfProfileUI();
+		profProfileUI.setVisible(true);
+	}
+	
+	//RESET ALL
 	
 	public static void resetAll() {
 		//Lembre-se que a tela de login ainda continuará na RAM
