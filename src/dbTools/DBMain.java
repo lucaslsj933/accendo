@@ -48,6 +48,13 @@ public class DBMain {
 		ConsultarLoadThread clt1=new ConsultarLoadThread();
 		clt1.start();
 	}
+	
+	//PROFESSOR
+	
+	public void profProfileLoad() {
+		ProfProfileLoadThread pplt1= new ProfProfileLoadThread();
+		pplt1.start();
+	}
 
 	public String getIdPessoa() {
 		return idPessoa;
