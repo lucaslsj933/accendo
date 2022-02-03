@@ -106,7 +106,7 @@ public class Main {
 			profProfileUI.setVisible(true);
 			
 			//Carregamento dos dados do BD
-			dbMain.profileLoad();
+			dbMain.profProfileLoad();
 		}
 		else {
 			currentFrame.setVisible(false);
