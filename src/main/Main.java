@@ -91,6 +91,7 @@ public class Main {
 	
 	public static void startProfProfile(Window currentFrame) {
 		profProfileUI=new ProfProfileUI();
+		profProfileUI.setVisible(true);
 	}
 	
 	//RESET ALL
