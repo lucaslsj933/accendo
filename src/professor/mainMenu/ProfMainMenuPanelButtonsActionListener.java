@@ -24,7 +24,7 @@ public class ProfMainMenuPanelButtonsActionListener implements ActionListener{
 			Main.startProfProfile(currentFrame);
 		else if(buttonId==2) {
 			Main.startMain(currentFrame);
-			Main.resetAll();
+			Main.resetAllProf();
 		}
 	}
 }

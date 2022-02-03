@@ -128,4 +128,16 @@ public class Main {
 		isConsultarOnRAM=false;
 		isProfileOnRAM=false;
 	}
+	
+	public static void resetAllProf() {
+		//Lembre-se que a tela de login ainda continuará na RAM
+		dbMain=null;
+		dbMain=new DBMain();
+		profHomeMenuUI=null;
+		profProfileUI=null;
+		//isOn
+		isProfHomeMenuOnRAM=false;
+		isProfProfileOnRAM=false;
+	}
+	
 }
