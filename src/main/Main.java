@@ -31,6 +31,10 @@ public class Main {
 	public static boolean isConsultarOnRAM=false;
 	public static boolean isProfileOnRAM=false;
 	
+	//isOn Professor
+	public static boolean isProfHomeMenuOnRAM=false;
+	public static boolean isProfProfileOnRAM=false;
+	
 	public static void main(String[] args) {
 		mainUI=new MainUI();
 		//mainUI.setVisible(false);
@@ -86,12 +90,28 @@ public class Main {
 	//PROFESSOR
 	
 	public static void startProfHomeMenu(Window currentFrame) {
-		profHomeMenuUI=new ProfHomeMenuUI();
+		if(!isProfHomeMenuOnRAM) {
+			profHomeMenuUI=new ProfHomeMenuUI();
+			isProfHomeMenuOnRAM=true;
+		}
+		currentFrame.setVisible(false);
+		profHomeMenuUI.setVisible(true);
 	}
 	
 	public static void startProfProfile(Window currentFrame) {
-		profProfileUI=new ProfProfileUI();
-		profProfileUI.setVisible(true);
+		if(!isProfProfileOnRAM) {
+			profProfileUI=new ProfProfileUI();
+			isProfProfileOnRAM=true;
+			currentFrame.setVisible(false);
+			profProfileUI.setVisible(true);
+			
+			//Carregamento dos dados do BD
+			dbMain.profileLoad();
+		}
+		else {
+			currentFrame.setVisible(false);
+			profProfileUI.setVisible(true);
+		}
 	}
 	
 	//RESET ALL
