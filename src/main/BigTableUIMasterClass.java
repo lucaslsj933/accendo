@@ -11,7 +11,7 @@ import mainMenu.MainMenuPanel;
 
 //LEMBRE-SE QUE O setVisible(true); DEVE SER EXECUTADO DEPOIS PARA FICAR VISÍVEL!
 
-//Lembre-se que é uma boa ideia copiar o código Max Width a não ser que você queira usá-lo exatamente igual
+//Lembre-se que é uma boa ideia copiar o código Max Width nas sub-classes a não ser que você queira usá-lo exatamente igual
 
 public class BigTableUIMasterClass extends JFrame{
 	private JTable table;

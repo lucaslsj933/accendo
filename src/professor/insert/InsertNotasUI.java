@@ -8,6 +8,7 @@ import javax.swing.table.TableColumn;
 import mainMenu.MainMenuPanel;
 import professor.mainMenu.ProfMainMenuPanel;
 
+
 public class InsertNotasUI extends JFrame{
 	private ProfMainMenuPanel profMainMenuPanel;
 	private JTable tableNotasAlunos;
