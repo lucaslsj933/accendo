@@ -1,5 +1,45 @@
 package consultar;
 
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+
+import main.*;
+
+public class ConsultarUI extends BigTableUIMasterClass{
+	
+	public ConsultarUI() {
+		setTitle("Accendo - Notas");
+		
+		//Dados e colunas
+		String data[][]= {
+					{"Matéria 1","","","",""},
+					{"Matéria 2","","","",""},
+					{"Matéria 3","","","",""},
+					{"Matéria 4","","","",""},
+					{"Matéria 5","","","",""}
+				};
+		String colunas[]={"Matéria","TA1","TA2","TA3","TA4"};
+		
+		//Modificando os dados da tabela
+		getTable().setModel(new DefaultTableModel(data, colunas));
+		
+		//Max Width
+		TableColumn tb0=getTable().getColumnModel().getColumn(0);
+		TableColumn tb1=getTable().getColumnModel().getColumn(1);
+		TableColumn tb2=getTable().getColumnModel().getColumn(2);
+		TableColumn tb3=getTable().getColumnModel().getColumn(3);
+		TableColumn tb4=getTable().getColumnModel().getColumn(4);
+		
+		tb0.setMaxWidth(800); tb1.setMaxWidth(100); tb2.setMaxWidth(100); tb3.setMaxWidth(100); tb4.setMaxWidth(100);
+
+		setVisible(true);
+	}
+}
+
+/*
+
+package consultar;
+
 import java.awt.Font;
 
 import javax.swing.*;
@@ -85,3 +125,19 @@ public class ConsultarUI extends JFrame{
 		this.mainMenuPanel = mainMenuPanel;
 	}
 }
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+

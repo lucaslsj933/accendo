@@ -6,9 +6,10 @@ import javax.swing.*;
 import javax.swing.table.TableColumn;
 
 import mainMenu.MainMenuPanel;
+import professor.mainMenu.ProfMainMenuPanel;
 
 public class InsertNotasUI extends JFrame{
-	private MainMenuPanel mainMenuPanel;
+	private ProfMainMenuPanel profMainMenuPanel;
 	private JTable tableNotasAlunos;
 	private JScrollPane jsp;
 	private Font bodyFont=new Font("Arial", Font.PLAIN, 20); //Font.PLAIN
@@ -44,10 +45,6 @@ public class InsertNotasUI extends JFrame{
 		
 		//Adicionando
 		add(jsp);
-		
-		//Adicionando mainMenuPanel
-		mainMenuPanel=new MainMenuPanel();
-		add(mainMenuPanel);
 		
 		setSize(1280,720);
 		setLocationRelativeTo(null);
