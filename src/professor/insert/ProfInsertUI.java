@@ -80,4 +80,20 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 	public void setJcbTurma(JComboBox jcbTurma) {
 		this.jcbTurma = jcbTurma;
 	}
+
+	public JLabel getJlTurma() {
+		return jlTurma;
+	}
+
+	public void setJlTurma(JLabel jlTurma) {
+		this.jlTurma = jlTurma;
+	}
+
+	public JButton getJbLoadTurma() {
+		return jbLoadTurma;
+	}
+
+	public void setJbLoadTurma(JButton jbLoadTurma) {
+		this.jbLoadTurma = jbLoadTurma;
+	}
 }
