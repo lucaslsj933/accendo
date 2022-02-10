@@ -9,13 +9,13 @@ import mainMenu.MainMenuPanel;
 import professor.mainMenu.ProfMainMenuPanel;
 
 
-public class InsertNotasUI extends JFrame{
+public class ProfInsertUI extends JFrame{
 	private ProfMainMenuPanel profMainMenuPanel;
 	private JTable tableNotasAlunos;
 	private JScrollPane jsp;
 	private Font bodyFont=new Font("Arial", Font.PLAIN, 20); //Font.PLAIN
 	
-	public InsertNotasUI() {
+	public ProfInsertUI() {
 		super("Accendo - Inserir Notas");
 		
 		String colunas[]={"Aluno","TA1","TA2","TA3","TA4"};

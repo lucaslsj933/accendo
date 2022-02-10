@@ -5,7 +5,7 @@ import javax.swing.JButton;
 import mainMenu.*;
 
 public class ProfMainMenuPanel extends MainMenuPanelMasterClass{
-	private JButton jbInicio,jbPerfil,jbSair;
+	private JButton jbInicio,jbInsert,jbPerfil,jbSair;
 	
 	public ProfMainMenuPanel() {
 		super();
@@ -13,17 +13,21 @@ public class ProfMainMenuPanel extends MainMenuPanelMasterClass{
 		jbInicio=new JButton("Início");
 		jbInicio.setBounds(0,100,100,30);
 		jbInicio.addActionListener(new ProfMainMenuPanelButtonsActionListener(0));
+
+		jbInsert=new JButton("Inserir Notas");
+		jbInsert.setBounds(100,100,100,30);
+		jbInsert.addActionListener(new ProfMainMenuPanelButtonsActionListener(1));
 		
 		jbPerfil=new JButton("Perfil");
 		jbPerfil.setBounds(100,100,100,30);
-		jbPerfil.addActionListener(new ProfMainMenuPanelButtonsActionListener(1));
+		jbPerfil.addActionListener(new ProfMainMenuPanelButtonsActionListener(2));
 		
 		jbSair=new JButton("Sair");
 		jbSair.setBounds(100,100,100,30);
-		jbSair.addActionListener(new ProfMainMenuPanelButtonsActionListener(2));
+		jbSair.addActionListener(new ProfMainMenuPanelButtonsActionListener(3));
 		
 		//Adicionando
-		add(jbInicio);add(jbPerfil);add(jbSair);
+		add(jbInicio);add(jbInsert);add(jbPerfil);add(jbSair);
 	}
 
 	public JButton getJbInicio() {
@@ -50,5 +54,11 @@ public class ProfMainMenuPanel extends MainMenuPanelMasterClass{
 		this.jbSair = jbSair;
 	}
 
-	
+	public JButton getJbInsert() {
+		return jbInsert;
+	}
+
+	public void setJbInsert(JButton jbInsert) {
+		this.jbInsert = jbInsert;
+	}
 }
