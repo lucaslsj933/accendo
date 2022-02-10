@@ -21,8 +21,10 @@ public class ProfMainMenuPanelButtonsActionListener implements ActionListener{
 		if(buttonId==0) 
 			Main.startProfHomeMenu(currentFrame);
 		else if(buttonId==1) 
+			Main.startProfInsert(currentFrame);
+		else if(buttonId==2) 
 			Main.startProfProfile(currentFrame);
-		else if(buttonId==2) {
+		else if(buttonId==3) {
 			Main.startMain(currentFrame);
 			Main.resetAllProf();
 		}

@@ -25,6 +25,7 @@ public class Main {
 	//PROFESSOR
 	public static ProfHomeMenuUI profHomeMenuUI;
 	public static ProfProfileUI profProfileUI; 
+	public static ProfInsertUI profInsertUI;
 	
 	//isOn
 	public static boolean isHomeMenuOnRAM=false;
@@ -34,9 +35,11 @@ public class Main {
 	//isOn Professor
 	public static boolean isProfHomeMenuOnRAM=false;
 	public static boolean isProfProfileOnRAM=false;
+	public static boolean isProfInsertUIOnRAM=false;
 	
 	public static void main(String[] args) {
 		mainUI=new MainUI();
+		
 		//mainUI.setVisible(false);
 		//InsertNotasUI insertNotasUI=new InsertNotasUI();
 		
@@ -96,6 +99,19 @@ public class Main {
 		}
 		currentFrame.setVisible(false);
 		profHomeMenuUI.setVisible(true);
+	}
+	
+	public static void startProfInsert(Window currentFrame) {
+		if(!isProfInsertUIOnRAM) {
+			profInsertUI=new ProfInsertUI();
+			isProfInsertUIOnRAM=true;
+			currentFrame.setVisible(false);
+			profInsertUI.setVisible(true);
+		}
+		else {
+			currentFrame.setVisible(false);
+			profInsertUI.setVisible(true);
+		}
 	}
 	
 	public static void startProfProfile(Window currentFrame) {
