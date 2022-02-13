@@ -7,7 +7,7 @@ public class MainUI extends JFrame{
 	private JLabel jlTitle,jlMatricula,jlSenha;
 	private JPasswordField jpfSenha;
 	private JTextField jtfMatricula;
-	private JButton jbAcessar;
+	private JButton jbAcessar,jbAcessarSaoJose;
 	
 	public MainUI() {
 		super("Accendo");
@@ -37,12 +37,17 @@ public class MainUI extends JFrame{
 		jbAcessar.setBounds(1280/2+100,720/2,100,30);
 		jbAcessar.addActionListener(new MainUIButtonsActionListener(0));
 		
+		//Buttons
+		jbAcessarSaoJose=new JButton("Acessar São José");
+		jbAcessarSaoJose.setBounds(1280/2-60,720/2,150,30);
+		jbAcessarSaoJose.addActionListener(new MainUIButtonsActionListener(1));
+		
 		//Adicionando
 		add(jlTitle);add(jlMatricula);add(jlSenha);
 		
 		add(jtfMatricula);add(jpfSenha);
 		
-		add(jbAcessar);
+		add(jbAcessar);add(jbAcessarSaoJose);
 		
 		//setLocationRelativeTo(null); centraliza na tela
 		setSize(1280,720);
