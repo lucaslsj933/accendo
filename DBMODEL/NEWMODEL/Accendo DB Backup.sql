@@ -27,7 +27,7 @@ CREATE TABLE `aluno` (
   `pessoa_idPessoa` varchar(50) NOT NULL,
   `etapa` varchar(45) DEFAULT NULL,
   `serie` int DEFAULT NULL,
-  `turma_idTurma` varchar(50) NOT NULL,
+  `turma_idTurma` int NOT NULL,
   PRIMARY KEY (`idAluno`,`pessoa_idPessoa`,`turma_idTurma`),
   KEY `fk_aluno_pessoa1_idx` (`pessoa_idPessoa`),
   KEY `fk_aluno_turma1_idx` (`turma_idTurma`),
@@ -42,7 +42,7 @@ CREATE TABLE `aluno` (
 
 LOCK TABLES `aluno` WRITE;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES (1,'A1111','Fundamental',9,'901'),(2,'A2222','Fundamental',9,'901');
+INSERT INTO `aluno` VALUES (1,'A1111','Fundamental',9,1),(2,'A2222','Fundamental',9,1);
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +170,7 @@ DROP TABLE IF EXISTS `professor_has_turma`;
 CREATE TABLE `professor_has_turma` (
   `professor_idProfessor` int NOT NULL,
   `professor_pessoa_idPessoa` varchar(50) NOT NULL,
-  `turma_idTurma` varchar(50) NOT NULL,
+  `turma_idTurma` int NOT NULL,
   PRIMARY KEY (`professor_idProfessor`,`professor_pessoa_idPessoa`,`turma_idTurma`),
   KEY `fk_professor_has_turma_turma1_idx` (`turma_idTurma`),
   KEY `fk_professor_has_turma_professor1_idx` (`professor_idProfessor`,`professor_pessoa_idPessoa`),
@@ -185,6 +185,7 @@ CREATE TABLE `professor_has_turma` (
 
 LOCK TABLES `professor_has_turma` WRITE;
 /*!40000 ALTER TABLE `professor_has_turma` DISABLE KEYS */;
+INSERT INTO `professor_has_turma` VALUES (1,'P1111',1);
 /*!40000 ALTER TABLE `professor_has_turma` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,9 +197,11 @@ DROP TABLE IF EXISTS `turma`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `turma` (
-  `idTurma` varchar(50) NOT NULL,
+  `idTurma` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) DEFAULT NULL,
+  `ano` year DEFAULT NULL,
   PRIMARY KEY (`idTurma`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -207,7 +210,7 @@ CREATE TABLE `turma` (
 
 LOCK TABLES `turma` WRITE;
 /*!40000 ALTER TABLE `turma` DISABLE KEYS */;
-INSERT INTO `turma` VALUES ('901');
+INSERT INTO `turma` VALUES (1,'901',2021);
 /*!40000 ALTER TABLE `turma` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -220,4 +223,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-09 16:07:26
+-- Dump completed on 2022-02-13 15:35:02

@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import main.Main;
+
 public class ConnectionFactory {
+	private boolean isAcessoAtSaoJose;
+	
 	public ConnectionFactory() {
 		try {
 			//Carrega o driver especificado
@@ -19,8 +23,15 @@ public class ConnectionFactory {
 		String user="root";
 		String password="12345";
 		
+		//Se o acesso é na São José
+		if(Main.isAcessoAtSaoJose) {
+			user="teste";
+			password="12345";
+		}
+		
 		Connection conexao=null;
 		conexao=DriverManager.getConnection(url,user,password);
+		
 		return conexao;
 	}
 }

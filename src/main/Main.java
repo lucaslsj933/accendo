@@ -22,6 +22,9 @@ public class Main {
 	public static ProfileUI profileUI;
 	public static DBMain dbMain=new DBMain();
 	
+	//Se é na São José
+	public static boolean isAcessoAtSaoJose=false;
+	
 	//PROFESSOR
 	public static ProfHomeMenuUI profHomeMenuUI;
 	public static ProfProfileUI profProfileUI; 
