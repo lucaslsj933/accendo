@@ -1,6 +1,7 @@
 package professor.insert;
 
 import java.awt.Font;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -9,13 +10,17 @@ import javax.swing.table.TableColumn;
 import main.BigTableUIMasterClass;
 import mainMenu.MainMenuPanel;
 import professor.mainMenu.ProfMainMenuPanel;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
 
 
 public class ProfInsertUI extends BigTableUIMasterClass{
 	private ProfMainMenuPanel profMainMenuPanel;
 	private JLabel jlTurma;
-	private JComboBox jcbTurma;
+	private JComboBox<String> jcbTurma;
 	private JButton jbLoadTurma;
+	
+	private ArrayList<Turma> listaTurmas=new ArrayList<Turma>();
 	
 	public ProfInsertUI() {
 		setTitle("Accendo - Inserir Notas");
@@ -27,11 +32,17 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		jlTurma.setFont(getBodyFont());
 		
 		String dataJcbTurma[]={"Turma 1","Turma 2","Turma 3","Turma 4","Turma 5"};
-		jcbTurma=new JComboBox(dataJcbTurma);
+		jcbTurma=new JComboBox<String>();
 		jcbTurma.setBounds(120,50,400,50);
 		
 		jbLoadTurma=new JButton("Carregar Turma");
 		jbLoadTurma.setBounds(540,50,300,50);
+		jbLoadTurma.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					//Stub
+				}
+		});
+		
 		
 		//Table
 		
@@ -73,11 +84,11 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		this.profMainMenuPanel = profMainMenuPanel;
 	}
 
-	public JComboBox getJcbTurma() {
+	public JComboBox<String> getJcbTurma() {
 		return jcbTurma;
 	}
 
-	public void setJcbTurma(JComboBox jcbTurma) {
+	public void setJcbTurma(JComboBox<String> jcbTurma) {
 		this.jcbTurma = jcbTurma;
 	}
 
@@ -95,5 +106,13 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 
 	public void setJbLoadTurma(JButton jbLoadTurma) {
 		this.jbLoadTurma = jbLoadTurma;
+	}
+
+	public ArrayList<Turma> getListaTurmas() {
+		return listaTurmas;
+	}
+
+	public void setListaTurmas(ArrayList<Turma> listaTurmas) {
+		this.listaTurmas = listaTurmas;
 	}
 }

@@ -110,6 +110,9 @@ public class Main {
 			isProfInsertUIOnRAM=true;
 			currentFrame.setVisible(false);
 			profInsertUI.setVisible(true);
+			
+			//Carregamento de turmas (sem os alunos) do DB
+			dbMain.profInsertTurmaLoad();
 		}
 		else {
 			currentFrame.setVisible(false);
