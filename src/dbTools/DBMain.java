@@ -55,6 +55,11 @@ public class DBMain {
 		ProfProfileLoadThread pplt1= new ProfProfileLoadThread();
 		pplt1.start();
 	}
+	
+	public void profInsertTurmaLoad() {
+		ProfInsertTurmaLoadThread pitlt1=new ProfInsertTurmaLoadThread();
+		pitlt1.start();
+	}
 
 	public String getIdPessoa() {
 		return idPessoa;
