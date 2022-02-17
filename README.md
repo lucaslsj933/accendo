@@ -1,6 +1,6 @@
 # accendo
  
-Sistema de notas escolar. Talvez irei expandir para um sistema completo escolar no futuro.
+Sistema de notas escolar para o TCC. Talvez irei expandir para um sistema completo escolar no futuro.
 
 # TODO
 
