@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 import main.BigTableUIMasterClass;
+import main.Main;
 import mainMenu.MainMenuPanel;
 import professor.mainMenu.ProfMainMenuPanel;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 	private JButton jbLoadTurma;
 	
 	private ArrayList<Turma> listaTurmas=new ArrayList<Turma>();
-	
+
 	public ProfInsertUI() {
 		setTitle("Accendo - Inserir Notas");
 		
@@ -39,19 +40,19 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		jbLoadTurma.setBounds(540,50,300,50);
 		jbLoadTurma.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					//Stub
+					Main.dbMain.profInsert_AlunosLoad();
 				}
 		});
 		
 		
 		//Table
 		
-		String colunas[]={"Aluno","TA1","TA2","TA3","TA4"};
-		String data[][]=new String[30][5];
+		String colunas[]={"Aluno","Matrícula","TA1","TA2","TA3","TA4"};
+		String data[][]=new String[30][6];
 		
 		for(int i=0;i<30;i++) {
 			data[i][0]="Aluno "+(String.valueOf(i+1));
-			data[i][1]=""; data[i][2]=""; data[i][3]=""; data[i][4]="";
+			data[i][1]=""; data[i][2]=""; data[i][3]=""; data[i][4]=""; data[i][5]="";
 		}
 		
 		//Definindo tamanho, posição e inserindo dados
@@ -63,8 +64,9 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		TableColumn tb2=getTable().getColumnModel().getColumn(2);
 		TableColumn tb3=getTable().getColumnModel().getColumn(3);
 		TableColumn tb4=getTable().getColumnModel().getColumn(4);
+		TableColumn tb5=getTable().getColumnModel().getColumn(5);
 		tb0.setMaxWidth(800);
-		tb1.setMaxWidth(100); tb2.setMaxWidth(100); tb3.setMaxWidth(100); tb4.setMaxWidth(100);
+		tb1.setMaxWidth(100); tb2.setMaxWidth(100); tb3.setMaxWidth(100); tb4.setMaxWidth(100); tb5.setMaxWidth(100);
 		
 		//Adicionando (além da super-classe)
 		add(jlTurma);add(jcbTurma);add(jbLoadTurma);

@@ -10,7 +10,7 @@ import professor.insert.*;
 
 //LEMBRE-SE QUE ISTO NÃO CARREGA OS ALUNOS, APENAS AS TURMAS!
 
-public class ProfInsertTurmaLoadThread extends Thread{
+public class ProfInsert_TurmaLoadThread extends Thread{
 	@Override
 	public void run() {
 		try {
