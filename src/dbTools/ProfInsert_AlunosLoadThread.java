@@ -8,6 +8,7 @@ import main.Main;
 
 public class ProfInsert_AlunosLoadThread extends Thread{
 	private int listaSizeCache;
+	private AlunoAndNotasQuery aAndNQueryCache;
 	
 	@Override
 	public void run() {
@@ -54,17 +55,21 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 			ps2.setInt(2,idTurma);
 			ResultSet rs2=ps2.executeQuery();
 			
-			i=0;
-			AlunoAndNotasQuery aAndNQueryCache=Main.profInsertUI.getaAndNList().get(i);
+			aAndNQueryCache=Main.profInsertUI.getaAndNList().get(0);
 			while(rs2.next()) {
 				//Se os idPessoa forem iguais
 				if(aAndNQueryCache.getPessoa_idPessoa().equals(rs2.getString(6))) {
-					aAndNQueryCache.getNotas()[rs2.getInt(3)-1]=rs2.getFloat(2);
-					JOptionPane.showMessageDialog(null,"Nota: "+
-							aAndNQueryCache.getNotas()[rs2.getInt(3)-1]);
+					//Coloque nada aqui
+				}
+				else {
+					aAndNQueryCache=null;
+					aAndNQueryCache=searchInaAndNQueryList(rs2.getString(6));
 				}
 				
-				//i++;
+				aAndNQueryCache.getNotas()[rs2.getInt(3)-1]=rs2.getFloat(2);
+				
+				JOptionPane.showMessageDialog(null,"Nota: "+
+						aAndNQueryCache.getNotas()[rs2.getInt(3)-1]);
 			}
 			
 		}
@@ -73,7 +78,13 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 		}
 	}
 	
-	public void searchInaAndNQueryList(String pessoa_idPessoa) {
-		
+	//Lembre-se que requer o listaSizeCache definido
+	public AlunoAndNotasQuery searchInaAndNQueryList(String pessoa_idPessoa) {
+		for(int i=0;i<listaSizeCache;i++) {
+			if(Main.profInsertUI.getaAndNList().get(i).getPessoa_idPessoa().equals(pessoa_idPessoa)) {
+				return Main.profInsertUI.getaAndNList().get(i);
+			}
+		}
+		return null;
 	}
 }
