@@ -8,6 +8,8 @@ public class AlunoAndNotasQuery {
 	//Vem da tabela pessoa
 	private String nome;
 	
+	private float[] notas=new float[4];
+			
 	public AlunoAndNotasQuery(int idAluno, String pessoa_idPessoa, String nome) {
 		super();
 		this.idAluno = idAluno;
@@ -37,5 +39,13 @@ public class AlunoAndNotasQuery {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+
+	public float[] getNotas() {
+		return notas;
+	}
+
+	public void setNotas(float[] notas) {
+		this.notas = notas;
 	}
 }

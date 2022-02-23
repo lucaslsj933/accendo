@@ -22,6 +22,7 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 	private JButton jbLoadTurma;
 	
 	private ArrayList<Turma> listaTurmas=new ArrayList<Turma>();
+	private ArrayList<AlunoAndNotasQuery> aAndNList=new ArrayList<AlunoAndNotasQuery>();
 
 	public ProfInsertUI() {
 		setTitle("Accendo - Inserir Notas");
@@ -43,7 +44,6 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 					Main.dbMain.profInsert_AlunosLoad();
 				}
 		});
-		
 		
 		//Table
 		
@@ -116,5 +116,13 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 
 	public void setListaTurmas(ArrayList<Turma> listaTurmas) {
 		this.listaTurmas = listaTurmas;
+	}
+	
+	public ArrayList<AlunoAndNotasQuery> getaAndNList() {
+		return aAndNList;
+	}
+
+	public void setaAndNList(ArrayList<AlunoAndNotasQuery> aAndNList) {
+		this.aAndNList = aAndNList;
 	}
 }

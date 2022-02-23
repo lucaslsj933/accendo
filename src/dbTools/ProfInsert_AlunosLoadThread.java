@@ -7,9 +7,15 @@ import professor.insert.AlunoAndNotasQuery;
 import main.Main;
 
 public class ProfInsert_AlunosLoadThread extends Thread{
+	private int listaSizeCache;
+	
 	@Override
 	public void run() {
 		try {
+			//ListaSizeCache
+			listaSizeCache=Main.profInsertUI.getaAndNList().size();
+			
+			
 			Connection conexao;
 			conexao=ConnectionFactory.createConnection();
 			String sql="select a.idAluno,a.pessoa_idPessoa,p.nome from aluno as a \r\n"
@@ -31,14 +37,43 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 						rs1.getString(3)
 						);
 				
+				Main.profInsertUI.getaAndNList().add(aAndNQuery);
+				
 				Main.profInsertUI.getTable().getModel().setValueAt(aAndNQuery.getNome(),i,0);
 				Main.profInsertUI.getTable().getModel().setValueAt(aAndNQuery.getPessoa_idPessoa(),i,1);
 				
 				i++;
 			}
+			
+			//Notas
+			String sql2="select n.*,a.turma_idTurma from nota as n \r\n"
+					+ "inner join aluno as a on(n.pessoa_idPessoa=a.pessoa_idPessoa)\r\n"
+					+ "where n.materia_idMateria=? and a.turma_idTurma=?;";
+			PreparedStatement ps2=conexao.prepareStatement(sql2);
+			ps2.setInt(1,1);
+			ps2.setInt(2,idTurma);
+			ResultSet rs2=ps2.executeQuery();
+			
+			i=0;
+			AlunoAndNotasQuery aAndNQueryCache=Main.profInsertUI.getaAndNList().get(i);
+			while(rs2.next()) {
+				//Se os idPessoa forem iguais
+				if(aAndNQueryCache.getPessoa_idPessoa().equals(rs2.getString(6))) {
+					aAndNQueryCache.getNotas()[rs2.getInt(3)-1]=rs2.getFloat(2);
+					JOptionPane.showMessageDialog(null,"Nota: "+
+							aAndNQueryCache.getNotas()[rs2.getInt(3)-1]);
+				}
+				
+				//i++;
+			}
+			
 		}
 		catch(Exception e) {
 			JOptionPane.showMessageDialog(null,"ERRO DB!"+e.getMessage());
 		}
+	}
+	
+	public void searchInaAndNQueryList(String pessoa_idPessoa) {
+		
 	}
 }
