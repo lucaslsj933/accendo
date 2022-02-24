@@ -44,8 +44,17 @@ public class AlunoAndNotasQuery {
 	public float[] getNotas() {
 		return notas;
 	}
+	
+	public float getNotaByTaIndex(int taIndex) {
+		return notas[taIndex];
+	}
 
 	public void setNotas(float[] notas) {
 		this.notas = notas;
+	}
+	
+	//Lembre-se que tem de ser via index (começa com 0, não 1)
+	public void setNotaByTaIndex(int taIndex,float nota) {
+		notas[taIndex]=nota;
 	}
 }
