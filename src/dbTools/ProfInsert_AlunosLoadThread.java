@@ -47,26 +47,31 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 			}
 			
 			//Notas
-			int idDaLista=0,taIndex;
-			AlunoAndNotasQuery aAndNTemp;	
-			String sql2="select * from nota\r\n"
-					+ "where materia_idMateria=? and pessoa_idPessoa=?;";
-			PreparedStatement ps2=conexao.prepareStatement(sql2);
-			ps2.setInt(1,1);
-			ps2.setString(2,Main.profInsertUI.getaAndNList().get(idDaLista).getPessoa_idPessoa());
-			ResultSet rs2=ps2.executeQuery();
-			
-			while(rs2.next()) {
-				aAndNTemp=Main.profInsertUI.getaAndNList().get(idDaLista);
-				taIndex=rs2.getInt(3)-1;
-				aAndNTemp.setNotaByTaIndex(taIndex,rs2.getFloat(2));
+			int listaSize=Main.profInsertUI.getaAndNList().size();
+			int idDaLista,taIndex;
+			AlunoAndNotasQuery aAndNTemp;
+			for(idDaLista=0;idDaLista<=listaSize;idDaLista++) {
+				aAndNTemp=Main.profInsertUI.getaAndNList().get(idDaLista);	
+				String sql2="select * from nota\r\n"
+						+ "where materia_idMateria=? and pessoa_idPessoa=?;";
+				PreparedStatement ps2=conexao.prepareStatement(sql2);
+				ps2.setInt(1,1);
+				ps2.setString(2,aAndNTemp.getPessoa_idPessoa());
+				ResultSet rs2=ps2.executeQuery();
 				
-				//Inserir na UI
-				//A row é idDaLista, a column é taIndex+2
-				Main.profInsertUI.getTable().getModel().setValueAt(
-						aAndNTemp.getNotaByTaIndex(taIndex)
-						,idDaLista,taIndex+2);
+				//Este while pega as notas de certo aluno. O for lá em cima dita qual será o idDaLista, que é usado para determinar qual aluno
+				while(rs2.next()) {
+					taIndex=rs2.getInt(3)-1;
+					aAndNTemp.setNotaByTaIndex(taIndex,rs2.getFloat(2));
+					
+					//Inserir na UI
+					//A row é idDaLista, a column é taIndex+2
+					Main.profInsertUI.getTable().getModel().setValueAt(
+							aAndNTemp.getNotaByTaIndex(taIndex)
+							,idDaLista,taIndex+2);
+				}
 			}
+			
 			
 			conexao.close();
 			
