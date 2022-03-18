@@ -157,9 +157,11 @@ public class Main {
 		dbMain=new DBMain();
 		profHomeMenuUI=null;
 		profProfileUI=null;
+		profInsertUI=null;
 		//isOn
 		isProfHomeMenuOnRAM=false;
 		isProfProfileOnRAM=false;
+		isProfInsertUIOnRAM=false;
 	}
 	
 }

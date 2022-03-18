@@ -1,3 +1,5 @@
+/img/
+/lib/
 /consultar/
 /dbTools/
 /main/
@@ -5,3 +7,4 @@
 /module-info.class
 /professor/
 /profile/
+/dbToolsTest/

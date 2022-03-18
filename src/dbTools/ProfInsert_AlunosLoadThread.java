@@ -50,7 +50,7 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 			int listaSize=Main.profInsertUI.getaAndNList().size();
 			int idDaLista,taIndex;
 			AlunoAndNotasQuery aAndNTemp;
-			for(idDaLista=0;idDaLista<=listaSize;idDaLista++) {
+			for(idDaLista=0;idDaLista<listaSize;idDaLista++) {
 				aAndNTemp=Main.profInsertUI.getaAndNList().get(idDaLista);	
 				String sql2="select * from nota\r\n"
 						+ "where materia_idMateria=? and pessoa_idPessoa=?;";
