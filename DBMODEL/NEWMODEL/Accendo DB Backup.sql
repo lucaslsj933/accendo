@@ -33,7 +33,7 @@ CREATE TABLE `aluno` (
   KEY `fk_aluno_turma1_idx` (`turma_idTurma`),
   CONSTRAINT `fk_aluno_pessoa1` FOREIGN KEY (`pessoa_idPessoa`) REFERENCES `pessoa` (`idPessoa`),
   CONSTRAINT `fk_aluno_turma1` FOREIGN KEY (`turma_idTurma`) REFERENCES `turma` (`idTurma`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `aluno` (
 
 LOCK TABLES `aluno` WRITE;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES (1,'A1111','Fundamental',9,1),(2,'A2222','Fundamental',9,1);
+INSERT INTO `aluno` VALUES (1,'A1111','Fundamental',9,1),(2,'A2222','Fundamental',9,1),(3,'A1113','Fundamental',8,2);
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +129,7 @@ CREATE TABLE `pessoa` (
 
 LOCK TABLES `pessoa` WRITE;
 /*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES ('A1111','a','12345','Lucas Santos de Jesus','M',21,'RG1111','CPF1111',1),('A2222','a','12345','Gabriel Ferreira','M',20,'RG2222','CPF2222',1),('P1111','p','12345','Thiago Macedo','M',28,'RGP1111','CPFP1111',1),('P2222','p','12345','Flávio Ferreira','M',30,'RGP2222','CPFP2222',1);
+INSERT INTO `pessoa` VALUES ('A1111','a','12345','Lucas Santos de Jesus','M',21,'RG1111','CPF1111',1),('A1113','a','12345','Davy de Souza','M',20,'RG1112','CPF1112',1),('A2222','a','12345','Gabriel Ferreira','M',20,'RG2222','CPF2222',1),('P1111','p','12345','Thiago Macedo','M',28,'RGP1111','CPFP1111',1),('P2222','p','12345','Flávio Ferreira','M',30,'RGP2222','CPFP2222',1);
 /*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,8 +172,8 @@ CREATE TABLE `professor_has_turma` (
   `professor_pessoa_idPessoa` varchar(50) NOT NULL,
   `turma_idTurma` int NOT NULL,
   PRIMARY KEY (`professor_idProfessor`,`professor_pessoa_idPessoa`,`turma_idTurma`),
-  KEY `fk_professor_has_turma_turma1_idx` (`turma_idTurma`),
   KEY `fk_professor_has_turma_professor1_idx` (`professor_idProfessor`,`professor_pessoa_idPessoa`),
+  KEY `fk_professor_has_turma_turma1_idx` (`turma_idTurma`),
   CONSTRAINT `fk_professor_has_turma_professor1` FOREIGN KEY (`professor_idProfessor`, `professor_pessoa_idPessoa`) REFERENCES `professor` (`idProfessor`, `pessoa_idPessoa`),
   CONSTRAINT `fk_professor_has_turma_turma1` FOREIGN KEY (`turma_idTurma`) REFERENCES `turma` (`idTurma`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
@@ -185,7 +185,7 @@ CREATE TABLE `professor_has_turma` (
 
 LOCK TABLES `professor_has_turma` WRITE;
 /*!40000 ALTER TABLE `professor_has_turma` DISABLE KEYS */;
-INSERT INTO `professor_has_turma` VALUES (1,'P1111',1);
+INSERT INTO `professor_has_turma` VALUES (1,'P1111',1),(2,'P2222',1),(1,'P1111',2);
 /*!40000 ALTER TABLE `professor_has_turma` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -201,7 +201,7 @@ CREATE TABLE `turma` (
   `nome` varchar(45) DEFAULT NULL,
   `ano` year DEFAULT NULL,
   PRIMARY KEY (`idTurma`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -210,7 +210,7 @@ CREATE TABLE `turma` (
 
 LOCK TABLES `turma` WRITE;
 /*!40000 ALTER TABLE `turma` DISABLE KEYS */;
-INSERT INTO `turma` VALUES (1,'901',2021);
+INSERT INTO `turma` VALUES (1,'901',2021),(2,'801',2021);
 /*!40000 ALTER TABLE `turma` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -223,4 +223,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-13 15:35:02
+-- Dump completed on 2022-02-24 17:26:28

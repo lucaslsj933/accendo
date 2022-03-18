@@ -112,7 +112,7 @@ public class Main {
 			profInsertUI.setVisible(true);
 			
 			//Carregamento de turmas (sem os alunos) do DB
-			dbMain.profInsertTurmaLoad();
+			dbMain.profInsert_TurmaLoad();
 		}
 		else {
 			currentFrame.setVisible(false);
@@ -157,9 +157,11 @@ public class Main {
 		dbMain=new DBMain();
 		profHomeMenuUI=null;
 		profProfileUI=null;
+		profInsertUI=null;
 		//isOn
 		isProfHomeMenuOnRAM=false;
 		isProfProfileOnRAM=false;
+		isProfInsertUIOnRAM=false;
 	}
 	
 }
