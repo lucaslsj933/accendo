@@ -4,6 +4,7 @@ import java.awt.Font;
 
 import javax.swing.*;
 
+import dbToolsTest.InsertALotOfAlunos;
 import main.Main;
 import mainMenu.*;
 
@@ -30,7 +31,6 @@ public class ProfHomeMenuUI extends JFrame{
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
 		setVisible(true);
-
 	}
 	
 	
