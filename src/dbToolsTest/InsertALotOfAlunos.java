@@ -17,7 +17,7 @@ public class InsertALotOfAlunos {
 			conexao=ConnectionFactory.createConnection();
 			Statement st=conexao.createStatement();
 			
-			for(int iPessoa=1;iPessoa<=30;iPessoa++) {
+			for(int iPessoa=1;iPessoa<=20;iPessoa++) {
 				String sql1="insert into pessoa values('A"+ String.valueOf(iPessoa)
 						+ "', 'a','12345','Teste " + String.valueOf(iPessoa)
 						+ "','M',21,'RG" + String.valueOf(iPessoa)
