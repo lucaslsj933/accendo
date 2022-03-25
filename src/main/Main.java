@@ -2,6 +2,7 @@ package main;
 
 import consultar.*;
 import dbTools.DBMain;
+import dbToolsTest.InsertALotOfAlunos;
 import mainMenu.*;
 import profile.*;
 import javax.swing.JFrame;

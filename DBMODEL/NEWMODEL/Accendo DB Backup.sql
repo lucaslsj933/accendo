@@ -33,7 +33,7 @@ CREATE TABLE `aluno` (
   KEY `fk_aluno_turma1_idx` (`turma_idTurma`),
   CONSTRAINT `fk_aluno_pessoa1` FOREIGN KEY (`pessoa_idPessoa`) REFERENCES `pessoa` (`idPessoa`),
   CONSTRAINT `fk_aluno_turma1` FOREIGN KEY (`turma_idTurma`) REFERENCES `turma` (`idTurma`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `aluno` (
 
 LOCK TABLES `aluno` WRITE;
 /*!40000 ALTER TABLE `aluno` DISABLE KEYS */;
-INSERT INTO `aluno` VALUES (1,'A1111','Fundamental',9,1),(2,'A2222','Fundamental',9,1),(3,'A1113','Fundamental',8,2);
+INSERT INTO `aluno` VALUES (1,'A1111','Fundamental',9,1),(2,'A2222','Fundamental',9,1),(3,'A1113','Fundamental',8,2),(4,'A0000','Fundamental',9,1);
 /*!40000 ALTER TABLE `aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +89,7 @@ CREATE TABLE `nota` (
   KEY `fk_nota_aluno1_idx` (`aluno_idAluno`,`pessoa_idPessoa`),
   CONSTRAINT `fk_nota_aluno1` FOREIGN KEY (`aluno_idAluno`, `pessoa_idPessoa`) REFERENCES `aluno` (`idAluno`, `pessoa_idPessoa`),
   CONSTRAINT `fk_nota_materia` FOREIGN KEY (`materia_idMateria`) REFERENCES `materia` (`idMateria`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `nota` (
 
 LOCK TABLES `nota` WRITE;
 /*!40000 ALTER TABLE `nota` DISABLE KEYS */;
-INSERT INTO `nota` VALUES (1,9.5,1,1,1,'A1111'),(2,8,1,2,1,'A1111'),(3,8.5,2,1,1,'A1111'),(4,8.5,2,2,1,'A1111'),(5,9,3,1,1,'A1111'),(6,10,4,1,1,'A1111'),(7,9,3,2,1,'A1111'),(8,8,4,2,1,'A1111'),(9,10,1,3,1,'A1111'),(10,9,2,3,1,'A1111'),(11,9,1,4,1,'A1111'),(12,8,2,4,1,'A1111'),(13,9,1,5,1,'A1111'),(14,8,2,5,1,'A1111'),(15,10,3,3,1,'A1111'),(16,9,4,3,1,'A1111'),(17,9,1,1,2,'A2222'),(18,8,2,1,2,'A2222'),(19,10,1,2,2,'A2222'),(20,9,2,2,2,'A2222');
+INSERT INTO `nota` VALUES (1,9.5,1,1,1,'A1111'),(2,8,1,2,1,'A1111'),(3,8.5,2,1,1,'A1111'),(4,8.5,2,2,1,'A1111'),(5,9,3,1,1,'A1111'),(6,10,4,1,1,'A1111'),(7,9,3,2,1,'A1111'),(8,8,4,2,1,'A1111'),(9,10,1,3,1,'A1111'),(10,9,2,3,1,'A1111'),(11,9,1,4,1,'A1111'),(12,8,2,4,1,'A1111'),(13,9,1,5,1,'A1111'),(14,8,2,5,1,'A1111'),(15,10,3,3,1,'A1111'),(16,9,4,3,1,'A1111'),(17,9,1,1,2,'A2222'),(18,8,2,1,2,'A2222'),(19,10,1,2,2,'A2222'),(20,9,2,2,2,'A2222'),(21,8.43493,1,1,4,'A0000');
 /*!40000 ALTER TABLE `nota` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +129,7 @@ CREATE TABLE `pessoa` (
 
 LOCK TABLES `pessoa` WRITE;
 /*!40000 ALTER TABLE `pessoa` DISABLE KEYS */;
-INSERT INTO `pessoa` VALUES ('A1111','a','12345','Lucas Santos de Jesus','M',21,'RG1111','CPF1111',1),('A1113','a','12345','Davy de Souza','M',20,'RG1112','CPF1112',1),('A2222','a','12345','Gabriel Ferreira','M',20,'RG2222','CPF2222',1),('P1111','p','12345','Thiago Macedo','M',28,'RGP1111','CPFP1111',1),('P2222','p','12345','Flávio Ferreira','M',30,'RGP2222','CPFP2222',1);
+INSERT INTO `pessoa` VALUES ('A0000','a','12345','Teste 0','M',21,'RG0000','CPF0000',1),('A1111','a','12345','Lucas Santos de Jesus','M',21,'RG1111','CPF1111',1),('A1113','a','12345','Davy de Souza','M',20,'RG1112','CPF1112',1),('A2222','a','12345','Gabriel Ferreira','M',20,'RG2222','CPF2222',1),('P1111','p','12345','Thiago Macedo','M',28,'RGP1111','CPFP1111',1),('P2222','p','12345','Flávio Ferreira','M',30,'RGP2222','CPFP2222',1);
 /*!40000 ALTER TABLE `pessoa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -223,4 +223,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-24 17:26:28
+-- Dump completed on 2022-03-25 16:16:04
