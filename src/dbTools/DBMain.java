@@ -65,6 +65,11 @@ public class DBMain {
 		ProfInsert_AlunosLoadThread pialt1=new ProfInsert_AlunosLoadThread();
 		pialt1.start();
 	}
+	
+	public void profInsert_MateriaLoadThread() {
+		ProfInsert_MateriaLoadThread pimlt=new ProfInsert_MateriaLoadThread();
+		pimlt.start();
+	}
 
 	public String getIdPessoa() {
 		return idPessoa;
