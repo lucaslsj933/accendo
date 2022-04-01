@@ -17,8 +17,8 @@ import java.awt.event.ActionEvent;
 
 public class ProfInsertUI extends BigTableUIMasterClass{
 	private ProfMainMenuPanel profMainMenuPanel;
-	private JLabel jlTurma;
-	private JComboBox<String> jcbTurma;
+	private JLabel jlTurma,jlMateria;
+	private JComboBox<String> jcbTurma,jcbMateria;
 	private JButton jbLoadTurma;
 	
 	private ArrayList<Turma> listaTurmas=new ArrayList<Turma>();
@@ -33,12 +33,20 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		jlTurma.setBounds(50,60,100,30);
 		jlTurma.setFont(getBodyFont());
 		
+		jlMateria=new JLabel("Matéria: ");
+		jlMateria.setBounds(440,60,100,30);
+		jlMateria.setFont(getBodyFont());
+		
 		String dataJcbTurma[]={"Turma 1","Turma 2","Turma 3","Turma 4","Turma 5"};
 		jcbTurma=new JComboBox<String>();
-		jcbTurma.setBounds(120,50,400,50);
+		jcbTurma.setBounds(120,50,300,50);
+		
+		String dataJcbMateria[]={"Matéria 1","Matéria 2","Matéria 3","Matéria 4","Matéria 5"};
+		jcbMateria=new JComboBox<String>();
+		jcbMateria.setBounds(520,50,300,50);
 		
 		jbLoadTurma=new JButton("Carregar Turma");
-		jbLoadTurma.setBounds(540,50,300,50);
+		jbLoadTurma.setBounds(850,50,350,50);
 		jbLoadTurma.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					//Lembre-se que você também tem que limpar a aAndNList!
@@ -52,7 +60,7 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		setTableToDefault();
 		
 		//Adicionando (além da super-classe)
-		add(jlTurma);add(jcbTurma);add(jbLoadTurma);
+		add(jlTurma);add(jlMateria);add(jcbTurma);add(jcbMateria);add(jbLoadTurma);
 		
 		//ProfMainMenuPanel
 		remove(getMainMenuPanel());
