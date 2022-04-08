@@ -1,4 +1,4 @@
-//ProfInsert_MateriaLoadThread
+//ProfInsert_MateriaLoadThread 2
 
 package dbTools;
 
@@ -25,7 +25,7 @@ public class ProfInsert_MandPQueryLoadThread extends Thread{
 			ResultSet rs1=ps1.executeQuery();
 			
 			while(rs1.next()) {
-				JOptionPane.showMessageDialog(null,"idMateria: "+rs1.getInt(1)+" nomeMateria: "+rs1.getString(2));
+				JOptionPane.showMessageDialog(null,"idMateria: "+rs1.getInt(1)+" nomeMateria: "+rs1.getString(2)+" PHM.p_p_idPessoa: "+rs1.getString(3));
 			}
 			
 			/*
@@ -40,7 +40,6 @@ public class ProfInsert_MandPQueryLoadThread extends Thread{
 				
 			}
 			 */
-
 			
 			conexao.close();
 		}
