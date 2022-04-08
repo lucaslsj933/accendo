@@ -1,3 +1,5 @@
+//ProfInsert_MateriaLoadThread
+
 package dbTools;
 
 import java.sql.Connection;
@@ -8,15 +10,15 @@ import javax.swing.JOptionPane;
 
 import main.Main;
 
-public class ProfInsert_MateriaLoadThread extends Thread{
+public class ProfInsert_MandPQueryLoadThread extends Thread{
 	@Override
 	public void run() {
 		try {
 			Connection conexao;
 			conexao=ConnectionFactory.createConnection();
-			String sql="select m.* from professor_has_materia as phm\r\n"
-					+ "inner join materia as m\r\n"
-					+ "on(m.idMateria=phm.materia_idMateria)\r\n"
+			String sql="select m.*,phm.professor_pessoa_idPessoa from professor_has_materia as phm\r\n"
+					+ "inner join materia as m on(m.idMateria=phm.materia_idMateria)\r\n"
+					+ "inner join turma_has_materia as thm on(phm.materia_idMateria=thm.materia_idMateria)\r\n"
 					+ "where phm.professor_pessoa_idPessoa=?;";
 			PreparedStatement ps1=conexao.prepareStatement(sql);
 			ps1.setString(1, Main.dbMain.getIdPessoa());
@@ -25,6 +27,20 @@ public class ProfInsert_MateriaLoadThread extends Thread{
 			while(rs1.next()) {
 				JOptionPane.showMessageDialog(null,"idMateria: "+rs1.getInt(1)+" nomeMateria: "+rs1.getString(2));
 			}
+			
+			/*
+			 *  			//Parte 2
+			String sql2="select * from turma_has_materia\r\n"
+					+ "where turma_idTurma=?;";
+			PreparedStatement ps2=conexao.prepareStatement(sql2);
+			ps2.setInt(1,1);
+			ResultSet rs2=ps2.executeQuery();
+			
+			while(rs2.next()) {
+				
+			}
+			 */
+
 			
 			conexao.close();
 		}

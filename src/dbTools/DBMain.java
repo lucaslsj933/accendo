@@ -66,9 +66,9 @@ public class DBMain {
 		pialt1.start();
 	}
 	
-	public void profInsert_MateriaLoadThread() {
-		ProfInsert_MateriaLoadThread pimlt=new ProfInsert_MateriaLoadThread();
-		pimlt.start();
+	public void profInsert_MandPQueryLoadThread() {
+		ProfInsert_MandPQueryLoadThread pimapqlt=new ProfInsert_MandPQueryLoadThread();
+		pimapqlt.start();
 	}
 
 	public String getIdPessoa() {

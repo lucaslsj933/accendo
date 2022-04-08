@@ -115,7 +115,7 @@ public class Main {
 			//Carregamento de turmas (sem os alunos) do DB
 			dbMain.profInsert_TurmaLoad();
 			//Carregamento de Matéria do DB
-			dbMain.profInsert_MateriaLoadThread();
+			dbMain.profInsert_MandPQueryLoadThread();
 		}
 		else {
 			currentFrame.setVisible(false);
