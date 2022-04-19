@@ -242,6 +242,34 @@ LOCK TABLES `turma` WRITE;
 INSERT INTO `turma` VALUES (1,'901',2021),(2,'801',2021);
 /*!40000 ALTER TABLE `turma` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Table structure for table `turma_has_materia`
+--
+
+DROP TABLE IF EXISTS `turma_has_materia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `turma_has_materia` (
+  `turma_idTurma` int NOT NULL,
+  `materia_idMateria` int NOT NULL,
+  PRIMARY KEY (`turma_idTurma`,`materia_idMateria`),
+  KEY `fk_turma_has_materia_materia1_idx` (`materia_idMateria`),
+  KEY `fk_turma_has_materia_turma1_idx` (`turma_idTurma`),
+  CONSTRAINT `fk_turma_has_materia_materia1` FOREIGN KEY (`materia_idMateria`) REFERENCES `materia` (`idMateria`),
+  CONSTRAINT `fk_turma_has_materia_turma1` FOREIGN KEY (`turma_idTurma`) REFERENCES `turma` (`idTurma`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `turma_has_materia`
+--
+
+LOCK TABLES `turma_has_materia` WRITE;
+/*!40000 ALTER TABLE `turma_has_materia` DISABLE KEYS */;
+INSERT INTO `turma_has_materia` VALUES (1,1),(1,6);
+/*!40000 ALTER TABLE `turma_has_materia` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -252,4 +280,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-01 20:18:54
+-- Dump completed on 2022-04-19 17:01:04
