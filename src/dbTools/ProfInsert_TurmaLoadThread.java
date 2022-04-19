@@ -42,6 +42,8 @@ public class ProfInsert_TurmaLoadThread extends Thread{
 				
 			
 			conexao.close();
+			
+			Main.profInsertUI.addALToJcbTurma();
 		}
 		catch(Exception e) {
 			JOptionPane.showMessageDialog(null,"ERRO DB!"+e.getMessage());

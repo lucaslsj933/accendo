@@ -9,7 +9,9 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 import main.Main;
+import professor.insert.MateriaAndProfQuery;
 
+//Lembre-se que para a matéria aparecer, o professor e a turma devem ser associadas à matéria!
 public class ProfInsert_MandPQueryLoadThread extends Thread{
 	@Override
 	public void run() {
@@ -26,7 +28,20 @@ public class ProfInsert_MandPQueryLoadThread extends Thread{
 			
 			while(rs1.next()) {
 				JOptionPane.showMessageDialog(null,"idMateria: "+rs1.getInt(1)+" nomeMateria: "+rs1.getString(2)+" PHM.p_p_idPessoa: "+rs1.getString(3));
+				MateriaAndProfQuery mAndP=new MateriaAndProfQuery(
+						rs1.getInt(1),
+						rs1.getString(2),
+						rs1.getString(3));
+				Main.profInsertUI.getmAndPList().add(mAndP);
 			}
+			
+			int size=Main.profInsertUI.getmAndPList().size();
+			for(int i=0;i<size;i++) {
+				Main.profInsertUI.getJcbMateria().addItem(
+						Main.profInsertUI.getmAndPList().get(i).getNomeMateria()
+						);
+			}
+			
 			
 			/*
 			 *  			//Parte 2
