@@ -98,6 +98,10 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 	public void addALToJcbTurma() {
 		jcbTurma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//Removendo os items já inseridos
+				jcbMateria.removeAllItems();
+				mAndPList.removeAll(mAndPList);
+				
 				Main.dbMain.profInsert_MandPQueryLoadThread();
 			}
 		});
