@@ -39,9 +39,13 @@ public class ProfInsert_TurmaLoadThread extends Thread{
 						Main.profInsertUI.getListaTurmas().get(i).getNome()
 						);
 			}
-				
 			
 			conexao.close();
+			
+			//Definindo que não há nenhuma turma selecionada
+			Main.profInsertUI.getJcbTurma().setSelectedIndex(-1);
+			
+			Main.profInsertUI.addALToJcbTurma();
 		}
 		catch(Exception e) {
 			JOptionPane.showMessageDialog(null,"ERRO DB!"+e.getMessage());

@@ -23,6 +23,7 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 	
 	private ArrayList<Turma> listaTurmas=new ArrayList<Turma>();
 	private ArrayList<AlunoAndNotasQuery> aAndNList=new ArrayList<AlunoAndNotasQuery>();
+	private ArrayList<MateriaAndProfQuery> mAndPList=new ArrayList<MateriaAndProfQuery>();
 
 	public ProfInsertUI() {
 		setTitle("Accendo - Inserir Notas");
@@ -92,6 +93,21 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		tb0.setMaxWidth(800);
 		tb1.setMaxWidth(100); tb2.setMaxWidth(100); tb3.setMaxWidth(100); tb4.setMaxWidth(100); tb5.setMaxWidth(100);
 	}
+	
+	//Este método deve ser executado depois das turmas serem inseridas no jcbTurma!
+	public void addALToJcbTurma() {
+		jcbTurma.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//Removendo os items já inseridos
+				jcbMateria.removeAllItems();
+				mAndPList.removeAll(mAndPList);
+				
+				int turma_idTurma=listaTurmas.get(jcbTurma.getSelectedIndex()).getIdTurma();
+				
+				Main.dbMain.profInsert_MandPQueryLoadThread(turma_idTurma);
+			}
+		});
+	}
 
 	public ProfMainMenuPanel getProfMainMenuPanel() {
 		return profMainMenuPanel;
@@ -139,5 +155,29 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 
 	public void setaAndNList(ArrayList<AlunoAndNotasQuery> aAndNList) {
 		this.aAndNList = aAndNList;
+	}
+
+	public JLabel getJlMateria() {
+		return jlMateria;
+	}
+
+	public void setJlMateria(JLabel jlMateria) {
+		this.jlMateria = jlMateria;
+	}
+
+	public JComboBox<String> getJcbMateria() {
+		return jcbMateria;
+	}
+
+	public void setJcbMateria(JComboBox<String> jcbMateria) {
+		this.jcbMateria = jcbMateria;
+	}
+
+	public ArrayList<MateriaAndProfQuery> getmAndPList() {
+		return mAndPList;
+	}
+
+	public void setmAndPList(ArrayList<MateriaAndProfQuery> mAndPList) {
+		this.mAndPList = mAndPList;
 	}
 }

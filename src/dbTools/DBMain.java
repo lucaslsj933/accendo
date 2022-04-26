@@ -65,6 +65,11 @@ public class DBMain {
 		ProfInsert_AlunosLoadThread pialt1=new ProfInsert_AlunosLoadThread();
 		pialt1.start();
 	}
+	
+	public void profInsert_MandPQueryLoadThread(int turma_idTurma) {
+		ProfInsert_MandPQueryLoadThread pimapqlt=new ProfInsert_MandPQueryLoadThread(turma_idTurma);
+		pimapqlt.start();
+	}
 
 	public String getIdPessoa() {
 		return idPessoa;
