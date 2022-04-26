@@ -50,12 +50,16 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 			int listaSize=Main.profInsertUI.getaAndNList().size();
 			int idDaLista,taIndex;
 			AlunoAndNotasQuery aAndNTemp;
+			int materia_idMateria=Main.profInsertUI.getmAndPList().get(
+					Main.profInsertUI.getJcbMateria().getSelectedIndex()
+					).getIdMateria();
 			for(idDaLista=0;idDaLista<listaSize;idDaLista++) {
 				aAndNTemp=Main.profInsertUI.getaAndNList().get(idDaLista);	
 				String sql2="select * from nota\r\n"
 						+ "where materia_idMateria=? and pessoa_idPessoa=?;";
 				PreparedStatement ps2=conexao.prepareStatement(sql2);
-				ps2.setInt(1,1);
+				
+				ps2.setInt(1,materia_idMateria);
 				ps2.setString(2,aAndNTemp.getPessoa_idPessoa());
 				ResultSet rs2=ps2.executeQuery();
 				
