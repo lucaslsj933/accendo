@@ -102,7 +102,9 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 				jcbMateria.removeAllItems();
 				mAndPList.removeAll(mAndPList);
 				
-				Main.dbMain.profInsert_MandPQueryLoadThread();
+				int turma_idTurma=listaTurmas.get(jcbTurma.getSelectedIndex()).getIdTurma();
+				
+				Main.dbMain.profInsert_MandPQueryLoadThread(turma_idTurma);
 			}
 		});
 	}

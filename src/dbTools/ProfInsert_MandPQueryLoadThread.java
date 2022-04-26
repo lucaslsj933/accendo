@@ -13,6 +13,13 @@ import professor.insert.MateriaAndProfQuery;
 
 //Lembre-se que para a matéria aparecer, o professor e a turma devem ser associadas à matéria!
 public class ProfInsert_MandPQueryLoadThread extends Thread{
+	private int turma_idTurma;
+	
+	public ProfInsert_MandPQueryLoadThread(int turma_idTurma) {
+		super();
+		this.turma_idTurma=turma_idTurma;
+	}
+	
 	@Override
 	public void run() {
 		try {
@@ -21,9 +28,11 @@ public class ProfInsert_MandPQueryLoadThread extends Thread{
 			String sql="select m.*,phm.professor_pessoa_idPessoa from professor_has_materia as phm\r\n"
 					+ "inner join materia as m on(m.idMateria=phm.materia_idMateria)\r\n"
 					+ "inner join turma_has_materia as thm on(phm.materia_idMateria=thm.materia_idMateria)\r\n"
-					+ "where phm.professor_pessoa_idPessoa=?;";
+					+ "where phm.professor_pessoa_idPessoa=?\r\n"
+					+ "and thm.turma_idTurma=?;";
 			PreparedStatement ps1=conexao.prepareStatement(sql);
 			ps1.setString(1, Main.dbMain.getIdPessoa());
+			ps1.setInt(2,turma_idTurma);
 			ResultSet rs1=ps1.executeQuery();
 			
 			while(rs1.next()) {

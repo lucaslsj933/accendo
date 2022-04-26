@@ -66,8 +66,8 @@ public class DBMain {
 		pialt1.start();
 	}
 	
-	public void profInsert_MandPQueryLoadThread() {
-		ProfInsert_MandPQueryLoadThread pimapqlt=new ProfInsert_MandPQueryLoadThread();
+	public void profInsert_MandPQueryLoadThread(int turma_idTurma) {
+		ProfInsert_MandPQueryLoadThread pimapqlt=new ProfInsert_MandPQueryLoadThread(turma_idTurma);
 		pimapqlt.start();
 	}
 
