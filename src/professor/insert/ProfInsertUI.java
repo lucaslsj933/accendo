@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
@@ -19,7 +21,7 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 	private ProfMainMenuPanel profMainMenuPanel;
 	private JLabel jlTurma,jlMateria;
 	private JComboBox<String> jcbTurma,jcbMateria;
-	private JButton jbLoadTurma;
+	private JButton jbLoadTurma,jbInsertNotas;
 	
 	private ArrayList<Turma> listaTurmas=new ArrayList<Turma>();
 	private ArrayList<AlunoAndNotasQuery> aAndNList=new ArrayList<AlunoAndNotasQuery>();
@@ -56,12 +58,23 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 					Main.dbMain.profInsert_AlunosLoad();
 				}
 		});
+		
+		jbInsertNotas=new JButton("Inserir Notas");
+		jbInsertNotas.setBounds(900,615,350,50);
 	
 		//Definindo tamanho, posição e inserindo dados padrão
 		setTableToDefault();
 		
+		//Quando algo é selecionado na tabela
+		getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent event) {
+				JOptionPane.showMessageDialog(null,"Teste");
+			}
+		});
+		
+		
 		//Adicionando (além da super-classe)
-		add(jlTurma);add(jlMateria);add(jcbTurma);add(jcbMateria);add(jbLoadTurma);
+		add(jlTurma);add(jlMateria);add(jcbTurma);add(jcbMateria);add(jbLoadTurma);add(jbInsertNotas);
 		
 		//ProfMainMenuPanel
 		remove(getMainMenuPanel());
@@ -82,7 +95,7 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		getTable().setModel(new DefaultTableModel(data, colunas));
 		
 		//Tamanho e posição
-		getJsp().setBounds(50,120,1150,550);
+		getJsp().setBounds(50,120,1150,480);
 		  
 		TableColumn tb0=getTable().getColumnModel().getColumn(0);
 		TableColumn tb1=getTable().getColumnModel().getColumn(1);
