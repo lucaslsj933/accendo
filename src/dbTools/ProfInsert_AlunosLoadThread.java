@@ -3,7 +3,7 @@ package dbTools;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import professor.insert.AlunoAndNotasQuery;
-import professor.insert.TableModelListenerProfInsert;
+import professor.insert.AlunoAndNotasSyncer;
 import main.Main;
 
 public class ProfInsert_AlunosLoadThread extends Thread{
@@ -79,8 +79,8 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 			
 			conexao.close();
 			
-			//TABLE MODEL LISTENER
-			Main.profInsertUI.getTable().getModel().addTableModelListener(new TableModelListenerProfInsert());
+			//AlunoAndNotasSyncer
+			Main.profInsertUI.getTable().getModel().addTableModelListener(new AlunoAndNotasSyncer());
 		}
 		catch(Exception e) {
 			JOptionPane.showMessageDialog(null,"ERRO DB!"+e.getMessage());
