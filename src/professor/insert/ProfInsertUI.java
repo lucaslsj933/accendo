@@ -66,11 +66,13 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		setTableToDefault();
 		
 		//Quando algo é selecionado na tabela
+		/*
 		getTable().getSelectionModel().addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent event) {
 				JOptionPane.showMessageDialog(null,"Teste");
 			}
 		});
+		*/
 		
 		
 		//Adicionando (além da super-classe)
