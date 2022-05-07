@@ -76,7 +76,6 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 				}
 			}
 			
-			
 			conexao.close();
 			
 			//AlunoAndNotasSyncer

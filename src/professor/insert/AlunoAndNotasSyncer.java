@@ -21,6 +21,12 @@ public class AlunoAndNotasSyncer implements TableModelListener{
 				Float value=Float.parseFloat(valueString);
 				
 				aAndNListCache.get(tableCache.getSelectedRow()).setNotaByTaIndex(tableCache.getSelectedColumn()-2, value);
+				
+				/*
+				   JOptionPane.showMessageDialog(null,"Value: "+
+						aAndNListCache.get(tableCache.getSelectedRow()).getNotaByTaIndex(tableCache.getSelectedColumn()-2)
+						);
+				 */
 			}
 		}
 		catch(Exception e) {
