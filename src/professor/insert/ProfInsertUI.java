@@ -23,6 +23,8 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 	private JComboBox<String> jcbTurma,jcbMateria;
 	private JButton jbLoadTurma,jbInsertNotas;
 	
+	//Lembre-se que idMateriaAtual só é mudada quando carregamos uma turma
+	private int idMateriaAtual;
 	private ArrayList<Turma> listaTurmas=new ArrayList<Turma>();
 	private ArrayList<AlunoAndNotasQuery> aAndNList=new ArrayList<AlunoAndNotasQuery>();
 	private ArrayList<MateriaAndProfQuery> mAndPList=new ArrayList<MateriaAndProfQuery>();
@@ -55,13 +57,25 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 					//Lembre-se que você também tem que limpar a aAndNList!
 					Main.profInsertUI.setTableToDefault();
 					aAndNList.removeAll(aAndNList);
+
+					//Settando a materia atual 
+					int jcbIndex=Main.profInsertUI.getJcbMateria().getSelectedIndex();
+					Main.profInsertUI.setIdMateriaAtual(
+							Main.profInsertUI.getmAndPList().get(jcbIndex).getIdMateria());
+					
 					Main.dbMain.profInsert_AlunosLoad();
 				}
 		});
 		
 		jbInsertNotas=new JButton("Inserir Notas");
 		jbInsertNotas.setBounds(900,615,350,50);
-	
+		jbInsertNotas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Main.dbMain.profInsert_InsertNotas();
+			}
+		});
+		
+		
 		//Definindo tamanho, posição e inserindo dados padrão
 		setTableToDefault();
 		
@@ -194,5 +208,21 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 
 	public void setmAndPList(ArrayList<MateriaAndProfQuery> mAndPList) {
 		this.mAndPList = mAndPList;
+	}
+
+	public JButton getJbInsertNotas() {
+		return jbInsertNotas;
+	}
+
+	public void setJbInsertNotas(JButton jbInsertNotas) {
+		this.jbInsertNotas = jbInsertNotas;
+	}
+
+	public int getIdMateriaAtual() {
+		return idMateriaAtual;
+	}
+
+	public void setIdMateriaAtual(int idMateriaAtual) {
+		this.idMateriaAtual = idMateriaAtual;
 	}
 }

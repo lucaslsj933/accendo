@@ -15,6 +15,10 @@ public class AlunoAndNotasQuery {
 		this.idAluno = idAluno;
 		this.pessoa_idPessoa = pessoa_idPessoa;
 		this.nome = nome;
+		
+		//Quando uma nota é -1 ela é nula
+		for(int i=0;i<notas.length;i++)
+			notas[i]=-1;
 	}
 
 	public int getIdAluno() {
