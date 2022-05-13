@@ -33,27 +33,28 @@ public class ProfInsert_InsertNotasThread extends Thread{
 			//		" TA4: "+dataCache.getNotaByTaIndex(3));
 			
 			
-			dataCache=aAndNListCache.get(0);
+			sql="{call insertNota(?,?,?,?,?)}";
+			cs=conexao.prepareCall(sql);
 			
-			for(int i=0;i<dataCache.getNotas().length;i++) {
-				//Se a nota for nula, ir para a próxima...
-				if(dataCache.getNotaByTaIndex(i)==-1)
-					continue;
+			//Este for faz o for de baixo ser executado em todos os alunos
+			for(int iUpper=0;iUpper<sizeCache;iUpper++) {
+				dataCache=aAndNListCache.get(iUpper);
 				
-				cs=null;
-				rs=null;
-				sql="{call insertNota(?,?,?,?,?)}";
-				cs=conexao.prepareCall(sql);
-				cs.setFloat(1,dataCache.getNotaByTaIndex(i));
-				cs.setInt(2, i+1); //TA
-				cs.setInt(3, idMateriaAtual);
-				cs.setInt(4,dataCache.getIdAluno());
-				cs.setString(5,dataCache.getPessoa_idPessoa());
-				cs.execute();
-				
-				rs=cs.getResultSet();
-				
-				JOptionPane.showMessageDialog(null,"TA: "+String.valueOf(i+1));
+				//Este for insere e/ou atualiza todas as notas de certo aluno 
+				for(int i=0;i<dataCache.getNotas().length;i++) {
+					//Se a nota for nula, ir para a próxima...
+					if(dataCache.getNotaByTaIndex(i)==-1) continue;
+					
+					cs.setFloat(1,dataCache.getNotaByTaIndex(i));
+					cs.setInt(2, i+1); //TA
+					cs.setInt(3, idMateriaAtual);
+					cs.setInt(4,dataCache.getIdAluno());
+					cs.setString(5,dataCache.getPessoa_idPessoa());
+					cs.execute();
+					
+					rs=null;
+					rs=cs.getResultSet();
+				}
 			}
 			
 			//Lembre-se que você precisa do next para pegar o que a procedure retorna
