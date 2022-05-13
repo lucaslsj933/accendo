@@ -89,7 +89,7 @@ CREATE TABLE `nota` (
   KEY `fk_nota_aluno1_idx` (`aluno_idAluno`,`pessoa_idPessoa`),
   CONSTRAINT `fk_nota_aluno1` FOREIGN KEY (`aluno_idAluno`, `pessoa_idPessoa`) REFERENCES `aluno` (`idAluno`, `pessoa_idPessoa`),
   CONSTRAINT `fk_nota_materia` FOREIGN KEY (`materia_idMateria`) REFERENCES `materia` (`idMateria`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +98,7 @@ CREATE TABLE `nota` (
 
 LOCK TABLES `nota` WRITE;
 /*!40000 ALTER TABLE `nota` DISABLE KEYS */;
-INSERT INTO `nota` VALUES (1,9.5,1,1,1,'A1111'),(2,8,1,2,1,'A1111'),(3,8.5,2,1,1,'A1111'),(4,8.5,2,2,1,'A1111'),(5,9,3,1,1,'A1111'),(6,10,4,1,1,'A1111'),(7,9,3,2,1,'A1111'),(8,8,4,2,1,'A1111'),(9,10,1,3,1,'A1111'),(10,9,2,3,1,'A1111'),(11,9,1,4,1,'A1111'),(12,8,2,4,1,'A1111'),(13,9,1,5,1,'A1111'),(14,8,2,5,1,'A1111'),(15,10,3,3,1,'A1111'),(16,9,4,3,1,'A1111'),(17,9,1,1,2,'A2222'),(18,8,2,1,2,'A2222'),(19,10,1,2,2,'A2222'),(20,9,2,2,2,'A2222'),(21,8.43493,1,1,4,'A0000'),(22,7.0721,1,1,5,'A1'),(23,6.60054,1,1,6,'A2'),(24,6.78642,1,1,7,'A3'),(25,9.13046,1,1,8,'A4'),(26,5.29303,1,1,9,'A5'),(27,9.07378,1,1,10,'A6'),(28,9.4898,1,1,11,'A7'),(29,5.22767,1,1,12,'A8'),(30,7.66894,1,1,13,'A9'),(31,7.66168,1,1,14,'A10'),(32,5.30159,1,1,15,'A11'),(33,8.52291,1,1,16,'A12'),(34,6.70976,1,1,17,'A13'),(35,7.98008,1,1,18,'A14'),(36,9.77114,1,1,19,'A15'),(37,9.91544,1,1,20,'A16'),(38,5.2638,1,1,21,'A17'),(39,6.57269,1,1,22,'A18'),(40,7.07202,1,1,23,'A19'),(41,5.64204,1,1,24,'A20'),(42,8,1,1,3,'A1113'),(43,9,2,1,3,'A1113');
+INSERT INTO `nota` VALUES (1,9.5,1,1,1,'A1111'),(2,8,1,2,1,'A1111'),(3,8.5,2,1,1,'A1111'),(4,8.5,2,2,1,'A1111'),(5,9,3,1,1,'A1111'),(6,10,4,1,1,'A1111'),(7,9,3,2,1,'A1111'),(8,8,4,2,1,'A1111'),(9,10,1,3,1,'A1111'),(10,9,2,3,1,'A1111'),(11,9,1,4,1,'A1111'),(12,8,2,4,1,'A1111'),(13,9,1,5,1,'A1111'),(14,8,2,5,1,'A1111'),(15,10,3,3,1,'A1111'),(16,9,4,3,1,'A1111'),(17,9,1,1,2,'A2222'),(18,8,2,1,2,'A2222'),(19,10,1,2,2,'A2222'),(20,9,2,2,2,'A2222'),(21,8.43493,1,1,4,'A0000'),(22,7.0721,1,1,5,'A1'),(23,6.60054,1,1,6,'A2'),(24,6.78642,1,1,7,'A3'),(25,9.13046,1,1,8,'A4'),(26,5.29303,1,1,9,'A5'),(27,9.07378,1,1,10,'A6'),(28,9.4898,1,1,11,'A7'),(29,5.22767,1,1,12,'A8'),(30,7.66894,1,1,13,'A9'),(31,7.66168,1,1,14,'A10'),(32,5.30159,1,1,15,'A11'),(33,8.52291,1,1,16,'A12'),(34,6.70976,1,1,17,'A13'),(35,7.98008,1,1,18,'A14'),(36,9.77114,1,1,19,'A15'),(37,9.91544,1,1,20,'A16'),(38,5.2638,1,1,21,'A17'),(39,6.57269,1,1,22,'A18'),(40,7.07202,1,1,23,'A19'),(41,5.64204,1,1,24,'A20'),(42,9,1,1,3,'A1113'),(46,7,2,1,3,'A1113');
 /*!40000 ALTER TABLE `nota` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -270,6 +270,40 @@ LOCK TABLES `turma_has_materia` WRITE;
 INSERT INTO `turma_has_materia` VALUES (1,1),(2,1),(1,6);
 /*!40000 ALTER TABLE `turma_has_materia` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'accendodbnew'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `insertNota` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insertNota`(inputValor float,inputTa int,inputMateria_idMateria int,inputAluno_idAluno int,inputPessoa_idPessoa varchar(50))
+begin
+	declare id int;
+	set id=(select idNota from nota where pessoa_idPessoa=inputPessoa_idPessoa and ta=inputTa and materia_idMateria=inputMateria_idMateria);
+    
+    -- LEMBRE-SE QUE QUANDO MODIFICAR ESTE CÓDIGO, MODIFIQUE TANTO O INSERT QUANTO O UPDATE!! TALVEZ MODIFIQUE O SELECT ACIMA TAMBÉM!
+	if(id is null) then 
+		insert into nota(valor,ta,materia_idMateria,aluno_idAluno,pessoa_idPessoa)
+	 	values (inputValor,inputTa,inputMateria_idMateria,inputAluno_idAluno,inputPessoa_idPessoa);
+	else 
+		update nota
+		set valor=inputValor
+		where pessoa_idPessoa=inputPessoa_idPessoa and ta=inputTa and materia_idMateria=inputMateria_idMateria;
+	end if;
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -280,4 +314,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-29 16:55:19
+-- Dump completed on 2022-05-13 13:34:00
