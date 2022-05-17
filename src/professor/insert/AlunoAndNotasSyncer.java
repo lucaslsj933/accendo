@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 import javax.swing.event.*;
+import java.lang.NumberFormatException;
 
 import main.Main;
 
@@ -18,6 +19,9 @@ public class AlunoAndNotasSyncer implements TableModelListener{
 			
 			if(tableCache.isEditing()) {
 				String valueString=(String)tableCache.getValueAt(tableCache.getSelectedRow(), tableCache.getSelectedColumn());
+				//Se não estiver nada escrito saímos do método
+				if(valueString.equals("")) 
+					return;
 				Float value=Float.parseFloat(valueString);
 				
 				aAndNListCache.get(tableCache.getSelectedRow()).setNotaByTaIndex(tableCache.getSelectedColumn()-2, value);
@@ -29,8 +33,13 @@ public class AlunoAndNotasSyncer implements TableModelListener{
 				 */
 			}
 		}
+		catch(NumberFormatException e) {
+			JTable tableCache=Main.profInsertUI.getTable();
+			JOptionPane.showMessageDialog(null,"Nota inválida!");
+			tableCache.setValueAt("",tableCache.getSelectedRow(), tableCache.getSelectedColumn());
+		}
 		catch(Exception e) {
-			JOptionPane.showMessageDialog(null,"ERRO!"+e.getMessage());
+			JOptionPane.showMessageDialog(null,"ERRO! "+e.toString());
 		}
 	}
 }
