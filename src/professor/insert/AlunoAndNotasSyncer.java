@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.lang.NumberFormatException;
+import java.lang.IndexOutOfBoundsException;
 
 import main.Main;
 
@@ -36,6 +37,11 @@ public class AlunoAndNotasSyncer implements TableModelListener{
 		catch(NumberFormatException e) {
 			JTable tableCache=Main.profInsertUI.getTable();
 			JOptionPane.showMessageDialog(null,"Nota inválida!");
+			tableCache.setValueAt("",tableCache.getSelectedRow(), tableCache.getSelectedColumn());
+		}
+		catch(IndexOutOfBoundsException e) {
+			JTable tableCache=Main.profInsertUI.getTable();
+			JOptionPane.showMessageDialog(null,"ERRO! IndexOutOfBounds");
 			tableCache.setValueAt("",tableCache.getSelectedRow(), tableCache.getSelectedColumn());
 		}
 		catch(Exception e) {
