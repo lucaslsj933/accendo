@@ -103,6 +103,7 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		String colunas[]={"Aluno","Matrícula","TA1","TA2","TA3","TA4"};
 		String data[][]=new String[30][6];
 		
+		
 		/*
 		 * Velho método de placeholders
 		 * 
@@ -114,9 +115,10 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		 */
 		
 		//Método de placeholders
-		//Primeiro i é de linhas e segundo de colunas
-		for(int i=0;i<30;i++) {
-			for(int i2=0;i2<5;i2++) {
+		int rowCount=getTable().getRowCount();
+		int columnCount=getTable().getColumnCount();
+		for(int i=0;i<rowCount;i++) {
+			for(int i2=0;i2<columnCount;i2++) {
 				data[i][i2]="";
 			}
 		}
