@@ -103,9 +103,22 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 		String colunas[]={"Aluno","Matrícula","TA1","TA2","TA3","TA4"};
 		String data[][]=new String[30][6];
 		
+		/*
+		 * Velho método de placeholders
+		 * 
+		 * 		for(int i=0;i<30;i++) {
+					data[i][0]="Aluno "+(String.valueOf(i+1));
+					data[i][1]=""; data[i][2]=""; data[i][3]=""; data[i][4]=""; data[i][5]="";
+				}
+		 * 
+		 */
+		
+		//Método de placeholders
+		//Primeiro i é de linhas e segundo de colunas
 		for(int i=0;i<30;i++) {
-			data[i][0]="Aluno "+(String.valueOf(i+1));
-			data[i][1]=""; data[i][2]=""; data[i][3]=""; data[i][4]=""; data[i][5]="";
+			for(int i2=0;i2<5;i2++) {
+				data[i][i2]="";
+			}
 		}
 		
 		getTable().setModel(new DefaultTableModel(data, colunas));
