@@ -4,9 +4,7 @@ import main.Main;
 
 public class Materia {
 	private int idMateria;
-	//private String aluno_idAluno;
 	private String nomeMateria;
-	//private float[] valoresTas=new float[4];
 	
 	public Materia(int idMateria) {
 		this.idMateria=idMateria;
