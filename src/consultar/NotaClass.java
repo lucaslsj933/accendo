@@ -9,8 +9,9 @@ public class NotaClass {
 	private int materia_idMateria;
 	private String aluno_idAluno;
 	private String pessoa_idPessoa;
-	private int idMateria;
-	private String nomeMateria;
+	
+	//private int idMateria;
+	//private String nomeMateria;
 	
 	public NotaClass(Float valor,int ta) {
 		this.valor=valor;
@@ -49,6 +50,7 @@ public class NotaClass {
 		this.aluno_idAluno = aluno_idAluno;
 	}
 
+	/*
 	public int getIdMateria() {
 		return idMateria;
 	}
@@ -64,6 +66,8 @@ public class NotaClass {
 	public void setNomeMateria(String nomeMateria) {
 		this.nomeMateria = nomeMateria;
 	}
+	
+	*/
 
 	public Float getValor() {
 		return valor;
