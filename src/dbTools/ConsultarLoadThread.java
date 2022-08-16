@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import consultar.MateriaDoAluno;
+import consultar.Materia;
 import consultar.NotaClass;
 import main.Main;
 
@@ -30,10 +31,12 @@ public class ConsultarLoadThread extends Thread{
 				nc.setMateria_idMateria(rs.getInt(4));
 				nc.setAluno_idAluno(rs.getString(5));
 				nc.setPessoa_idPessoa(rs.getString(6));
-				nc.setIdMateria(rs.getInt(7));
-				nc.setNomeMateria(rs.getString(8));
 				
-				CheckIfExistsAndAdd(nc);
+				Materia m;
+				m=new Materia(rs.getInt(7)); //o Int 7 pega o id da Matéria
+				m.setNomeMateria(rs.getString(8));
+				
+				CheckIfExistsAndAdd(nc,m);
 				//Inserindo na UI
 				//Main.consultarUI.getTableNotas().setValueAt(String.valueOf(nc.getValor()), 0, nc.getTa());
 			}
@@ -52,15 +55,15 @@ public class ConsultarLoadThread extends Thread{
 		}
 	}
 	
-	public void CheckIfExistsAndAdd(NotaClass nc) {
+	public void CheckIfExistsAndAdd(NotaClass nc,Materia m) {
 		int size=listaMDA.size();
 		if(size==0) {
-			createMDAAndAddToLista(nc);
+			createMDAAndAddToLista(nc,m);
 			return;
 		}
 
 		for(int i=0;i<size;i++) {
-			if(listaMDA.get(i).getIdMateria()==nc.getIdMateria()) {
+			if(listaMDA.get(i).getIdMateria()==m.getIdMateria()) {
 				//As matérias são iguais, então adicione
 				listaMDA.get(i).getValoresTas()[nc.getTa()-1]=nc.getValor();
 				//JOptionPane.showMessageDialog(null,"Teste"+
@@ -70,13 +73,13 @@ public class ConsultarLoadThread extends Thread{
 			}
 		}
 		//Se nenhuma matéria for igual, adicione a matéria
-		createMDAAndAddToLista(nc);
+		createMDAAndAddToLista(nc,m);
 		
 	}
 	
-	public void createMDAAndAddToLista(NotaClass nc) {
-		MateriaDoAluno mda=new MateriaDoAluno(nc.getIdMateria(),nc.getAluno_idAluno());
-		mda.setNomeMateria(nc.getNomeMateria());
+	public void createMDAAndAddToLista(NotaClass nc,Materia m) {
+		MateriaDoAluno mda=new MateriaDoAluno(m.getIdMateria(),nc.getAluno_idAluno());
+		mda.setNomeMateria(m.getNomeMateria());
 		mda.getValoresTas()[nc.getTa()-1]=nc.getValor();
 		//Adicionando à lista
 		listaMDA.add(mda);
