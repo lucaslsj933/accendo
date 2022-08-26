@@ -7,7 +7,8 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import consultar.MateriaDoAluno;
+//import consultar.MateriaDoAluno;
+import consultar.LucasNotasContainer;
 import consultar.Materia;
 import consultar.Nota;
 import main.Main;
@@ -15,7 +16,8 @@ import main.Main;
 public class ConsultarLoadThread extends Thread{
 	private String idInput;
 	ArrayList<Nota> listaNC=new ArrayList<Nota>();
-	ArrayList<MateriaDoAluno> listaMDA=new ArrayList<MateriaDoAluno>(); 
+	//LucasNotasContainer
+	ArrayList<LucasNotasContainer> listaLNC=new ArrayList<LucasNotasContainer>(); 
 	
 	public void run() {
 		try {
@@ -42,13 +44,19 @@ public class ConsultarLoadThread extends Thread{
 			}
 			conexao.close();
 			
+			int listaLNCSize=listaLNC.size();
+			for(int i=0;i<listaLNCSize;i++) {
+				listaLNC.get(i).inserirNaUI(i);
+			}
 			
-			//Inserindo na UI
+			//Inserindo na UI (MDA)
 			//A linha da tabela onde a matéria será inserido está no i de inserirNaUI(i)
+			/*
 			int listaMDASize=listaMDA.size();
 			for(int i=0;i<listaMDASize;i++) {
 				listaMDA.get(i).inserirNaUI(i);
 			}
+			*/
 		}
 		catch(Exception e) {
 			JOptionPane.showMessageDialog(null,"ERRO DB!"+e.getMessage());
@@ -56,33 +64,30 @@ public class ConsultarLoadThread extends Thread{
 	}
 	
 	public void CheckIfExistsAndAdd(Nota nc,Materia m) {
-		int size=listaMDA.size();
+		int size=listaLNC.size();
 		if(size==0) {
-			createMDAAndAddToLista(nc,m);
+			createLNCAndAddToLista(nc,m);
 			return;
 		}
-
+		
 		for(int i=0;i<size;i++) {
-			if(listaMDA.get(i).getIdMateria()==m.getIdMateria()) {
+			if(listaLNC.get(i).getMateria().getIdMateria()==m.getIdMateria()) {
 				//As matérias são iguais, então adicione
-				listaMDA.get(i).getValoresTas()[nc.getTa()-1]=nc.getValor();
+				listaLNC.get(i).getNotas()[nc.getTa()-1]=nc;
 				//JOptionPane.showMessageDialog(null,"Teste"+
 				//		listaMDA.get(i).getValoresTas()[nc.getTa()-1]);
-				
 				return;
 			}
 		}
 		//Se nenhuma matéria for igual, adicione a matéria
-		createMDAAndAddToLista(nc,m);
+		createLNCAndAddToLista(nc,m);
 		
 	}
 	
-	public void createMDAAndAddToLista(Nota nc,Materia m) {
-		MateriaDoAluno mda=new MateriaDoAluno(m.getIdMateria(),nc.getAluno_idAluno());
-		mda.setNomeMateria(m.getNomeMateria());
-		mda.getValoresTas()[nc.getTa()-1]=nc.getValor();
-		//Adicionando à lista
-		listaMDA.add(mda);
+	public void createLNCAndAddToLista(Nota nc,Materia m) {
+		LucasNotasContainer lnc=new LucasNotasContainer(m);
+		lnc.getNotas()[0]=nc;
+		listaLNC.add(lnc);
 		
 		//JOptionPane.showMessageDialog(null,"Teste ADD MDA "+mda.getNomeMateria());
 	}
