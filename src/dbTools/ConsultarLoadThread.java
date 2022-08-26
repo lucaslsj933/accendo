@@ -9,12 +9,12 @@ import javax.swing.JOptionPane;
 
 import consultar.MateriaDoAluno;
 import consultar.Materia;
-import consultar.NotaClass;
+import consultar.Nota;
 import main.Main;
 
 public class ConsultarLoadThread extends Thread{
 	private String idInput;
-	ArrayList<NotaClass> listaNC=new ArrayList<NotaClass>();
+	ArrayList<Nota> listaNC=new ArrayList<Nota>();
 	ArrayList<MateriaDoAluno> listaMDA=new ArrayList<MateriaDoAluno>(); 
 	
 	public void run() {
@@ -27,7 +27,7 @@ public class ConsultarLoadThread extends Thread{
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()) {
 				//Inicializando com valor e TA
-				NotaClass nc=new NotaClass(rs.getFloat(2),rs.getInt(3));
+				Nota nc=new Nota(rs.getFloat(2),rs.getInt(3));
 				nc.setMateria_idMateria(rs.getInt(4));
 				nc.setAluno_idAluno(rs.getString(5));
 				nc.setPessoa_idPessoa(rs.getString(6));
@@ -55,7 +55,7 @@ public class ConsultarLoadThread extends Thread{
 		}
 	}
 	
-	public void CheckIfExistsAndAdd(NotaClass nc,Materia m) {
+	public void CheckIfExistsAndAdd(Nota nc,Materia m) {
 		int size=listaMDA.size();
 		if(size==0) {
 			createMDAAndAddToLista(nc,m);
@@ -77,7 +77,7 @@ public class ConsultarLoadThread extends Thread{
 		
 	}
 	
-	public void createMDAAndAddToLista(NotaClass nc,Materia m) {
+	public void createMDAAndAddToLista(Nota nc,Materia m) {
 		MateriaDoAluno mda=new MateriaDoAluno(m.getIdMateria(),nc.getAluno_idAluno());
 		mda.setNomeMateria(m.getNomeMateria());
 		mda.getValoresTas()[nc.getTa()-1]=nc.getValor();

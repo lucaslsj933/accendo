@@ -2,7 +2,7 @@ package consultar;
 
 import java.math.BigDecimal;
 
-public class NotaClass {
+public class Nota {
 	private int idNota;
 	private Float valor;
 	private int ta;
@@ -13,7 +13,7 @@ public class NotaClass {
 	//private int idMateria;
 	//private String nomeMateria;
 	
-	public NotaClass(Float valor,int ta) {
+	public Nota(Float valor,int ta) {
 		this.valor=valor;
 		this.ta=ta;
 	}
