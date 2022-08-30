@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 import main.Main;
+import profile.Pessoa;
+import profile.Aluno;
 
 public class ProfileLoadThread extends Thread{
 
@@ -24,28 +26,35 @@ public class ProfileLoadThread extends Thread{
 			//Dados do Aluno
 			//LEMBRE-SE QUE O NEXT É NECESSÁRIO!
 			rs1.next();
-			String idPessoa,nome,rg,cpf,etapa,turma;
-			int idade,serie;
-			char sexo;
-			idPessoa=rs1.getString(1);
-			nome=rs1.getString(4);
-			sexo=rs1.getString(5).charAt(0);
-			idade=rs1.getInt(6);
-			etapa=rs1.getString(12);
-			serie=rs1.getInt(13);
-			rg=rs1.getString(7);
-			cpf=rs1.getString(8);
-			turma=rs1.getString(14);
+			Aluno aluno=new Aluno();
+			
+			aluno.setIdPessoa(rs1.getString(1));
+			aluno.setNome(rs1.getString(4));
+			aluno.setSexo(rs1.getString(5).charAt(0));
+			aluno.setIdade(rs1.getInt(6));
+			aluno.setEtapa(rs1.getString(12));
+			aluno.setSerie(rs1.getInt(13));
+			aluno.setRg(rs1.getString(7));
+			aluno.setCpf(rs1.getString(8));
+			aluno.setTurma_idTurma(rs1.getInt(14));
 			
 			//Inserindo na UI
-			Main.profileUI.getJlNameInput().setText(nome);
-			Main.profileUI.getJlSexoInput().setText(String.valueOf(sexo));
-			Main.profileUI.getJlIdadeInput().setText(String.valueOf(idade));
-			Main.profileUI.getJlRGInput().setText(rg);
-			Main.profileUI.getJlCpfInput().setText(cpf);
-			Main.profileUI.getJlSerieInput().setText(String.valueOf(serie)+"ª");
-			Main.profileUI.getJlEtapaInput().setText(etapa);
-			Main.profileUI.getJlTurmaInput().setText(turma);
+			Main.profileUI.getJlNameInput().setText(
+					aluno.getNome());
+			Main.profileUI.getJlSexoInput().setText(
+					String.valueOf(aluno.getSexo()));
+			Main.profileUI.getJlIdadeInput().setText(
+					String.valueOf(aluno.getIdade()));
+			Main.profileUI.getJlRGInput().setText(
+					aluno.getRg());
+			Main.profileUI.getJlCpfInput().setText(
+					aluno.getCpf());
+			Main.profileUI.getJlSerieInput().setText(
+					String.valueOf(aluno.getSerie())+"ª");
+			Main.profileUI.getJlEtapaInput().setText(
+					aluno.getEtapa());
+			Main.profileUI.getJlTurmaInput().setText(
+					String.valueOf(aluno.getTurma_idTurma()));
 			
 			conexao.close();
 		}
