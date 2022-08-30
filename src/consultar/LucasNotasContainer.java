@@ -2,7 +2,7 @@ package consultar;
 
 import main.Main;
 
-//Por enquanto isto guarda apenas as notas de uma matéria!
+//Por enquanto isto guarda apenas as notas de uma matéria de um aluno!
 
 public class LucasNotasContainer {
 	
