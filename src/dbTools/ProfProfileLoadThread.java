@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 import main.Main;
+import professor.profile.Professor;
 
 public class ProfProfileLoadThread extends Thread{
 
@@ -21,32 +22,37 @@ public class ProfProfileLoadThread extends Thread{
 			PreparedStatement ps1=conexao.prepareStatement(sql);
 			ps1.setString(1, Main.dbMain.getIdPessoa());
 			ResultSet rs1=ps1.executeQuery();
+			
 			//Dados de Pessoa
 			//LEMBRE-SE QUE O NEXT É NECESSÁRIO!
 			rs1.next();
-			String idPessoa,nome,rg,cpf;
-			int idade;
-			char sexo;
-			idPessoa=rs1.getString(1);
-			nome=rs1.getString(4);
-			sexo=rs1.getString(5).charAt(0);
-			idade=rs1.getInt(6);
-			rg=rs1.getString(7);
-			cpf=rs1.getString(8);
+			
+			Professor prof=new Professor();
+			prof.setIdPessoa(rs1.getString(1));
+			prof.setNome(rs1.getString(4));
+			prof.setSexo(rs1.getString(5).charAt(0));
+			prof.setIdade(rs1.getInt(6));
+			prof.setRg(rs1.getString(7));
+			prof.setCpf(rs1.getString(8));
 			
 			//Dados de Professor
-			String graduacao;
-			graduacao=rs1.getString(12);
+			prof.setGraduacao(rs1.getString(12));
 			
 			//Inserindo na UI - Pessoa
-			Main.profProfileUI.getJlNameInput().setText(nome);
-			Main.profProfileUI.getJlSexoInput().setText(String.valueOf(sexo));
-			Main.profProfileUI.getJlIdadeInput().setText(String.valueOf(idade));
-			Main.profProfileUI.getJlRGInput().setText(rg);
-			Main.profProfileUI.getJlCpfInput().setText(cpf);
+			Main.profProfileUI.getJlNameInput().setText(
+					prof.getNome());
+			Main.profProfileUI.getJlSexoInput().setText(
+					String.valueOf(prof.getSexo()));
+			Main.profProfileUI.getJlIdadeInput().setText(
+					String.valueOf(prof.getIdade()));
+			Main.profProfileUI.getJlRGInput().setText(
+					prof.getRg());
+			Main.profProfileUI.getJlCpfInput().setText(
+					prof.getCpf());
 			
 			//Inserindo na UI - Professor
-			Main.profProfileUI.getJlGraduacaoInput().setText(graduacao);
+			Main.profProfileUI.getJlGraduacaoInput().setText(
+					prof.getGraduacao());
 			
 			conexao.close();
 		}
