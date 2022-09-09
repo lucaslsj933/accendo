@@ -1,24 +1,25 @@
-package consultar;
+package professor.insert;
 
 import main.Main;
+import consultar.Nota;
+import java.util.ArrayList;
 
-//Este guarda apenas as notas de uma matéria de um aluno!
-//O PRO guarda de todos os alunos de todas as matérias (que forem pedidos pelo user)
+//Esta classe (a PRO) guarda as notas de todos os alunos de todas as matérias (que forem pedidos pelo user)
 
-public class LucasNotasContainer {
+public class LucasNotasContainerPro {
 	
-	private Materia materia;
 	//Se a matéria tem quatro notas em um ano, coloque 4 aqui...
-	private Nota[] notas=new Nota[4];
+	private ArrayList<Nota> notaList;
 	
-	public LucasNotasContainer(Materia materia) {
-		this.materia=materia;
-		
-		for(int i=0;i<notas.length;i++) {
-			notas[i]=null;
-		}
+	public LucasNotasContainerPro() {
+		notaList=new ArrayList<Nota>();
 	}
 	
+	public void adic(Nota n) {
+		notaList.add(n);
+	}
+	
+	/*
 	public void inserirNaUI(int row) {
 		//Nome da Matéria
 		Main.consultarUI.getTable().setValueAt(materia.getNomeMateria(), row, 0);
@@ -33,20 +34,13 @@ public class LucasNotasContainer {
 		
 		//Main.consultarUI.getTableNotas().setValueAt(String.valueOf(valoresTas[0]), row, 1);
 	}
+	*/
 
-	public Materia getMateria() {
-		return materia;
+	public ArrayList<Nota> getNotaList() {
+		return notaList;
 	}
 
-	public void setMateria(Materia materia) {
-		this.materia = materia;
-	}
-
-	public Nota[] getNotas() {
-		return notas;
-	}
-
-	public void setNotas(Nota[] notas) {
-		this.notas = notas;
+	public void setNotaList(ArrayList<Nota> notaList) {
+		this.notaList = notaList;
 	}
 }
