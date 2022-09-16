@@ -9,10 +9,12 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
+import consultar.Materia;
 import main.BigTableUIMasterClass;
 import main.Main;
 import mainMenu.MainMenuPanel;
 import professor.mainMenu.ProfMainMenuPanel;
+import professor.profile.Professor;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
@@ -27,8 +29,13 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 	private int idMateriaAtual;
 	private ArrayList<Turma> listaTurmas=new ArrayList<Turma>();
 	private ArrayList<AlunoAndNotasQuery> aAndNList=new ArrayList<AlunoAndNotasQuery>();
+	
 	private ArrayList<MateriaAndProfQuery> mAndPList=new ArrayList<MateriaAndProfQuery>();
 
+	private LucasNotasContainerPro lncPro=new LucasNotasContainerPro();
+	private ArrayList<Materia> listaMateria=new ArrayList<Materia>();;
+	private ArrayList<Professor> listaProf=new ArrayList<Professor>();;
+	
 	public ProfInsertUI() {
 		setTitle("Accendo - Inserir Notas");
 		
@@ -239,5 +246,21 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 
 	public void setIdMateriaAtual(int idMateriaAtual) {
 		this.idMateriaAtual = idMateriaAtual;
+	}
+
+	public ArrayList<Materia> getListaMateria() {
+		return listaMateria;
+	}
+
+	public void setListaMateria(ArrayList<Materia> listaMateria) {
+		this.listaMateria = listaMateria;
+	}
+
+	public ArrayList<Professor> getListaProf() {
+		return listaProf;
+	}
+
+	public void setListaProf(ArrayList<Professor> listaProf) {
+		this.listaProf = listaProf;
 	}
 }
