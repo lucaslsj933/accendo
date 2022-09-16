@@ -263,4 +263,12 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 	public void setListaProf(ArrayList<Professor> listaProf) {
 		this.listaProf = listaProf;
 	}
+
+	public LucasNotasContainerPro getLncPro() {
+		return lncPro;
+	}
+
+	public void setLncPro(LucasNotasContainerPro lncPro) {
+		this.lncPro = lncPro;
+	}
 }

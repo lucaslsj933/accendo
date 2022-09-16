@@ -4,11 +4,14 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import professor.insert.AlunoAndNotasQuery;
 import professor.insert.AlunoAndNotasSyncer;
+import professor.insert.LucasNotasContainerPro;
 import main.Main;
 
 public class ProfInsert_AlunosLoadThread extends Thread{
 	private int listaSizeCache;
 	private AlunoAndNotasQuery aAndNQueryCache;
+	
+	private LucasNotasContainerPro lncProCache;
 	
 	@Override
 	public void run() {
@@ -16,6 +19,8 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 			//ListaSizeCache
 			listaSizeCache=Main.profInsertUI.getaAndNList().size();
 			
+			//LncProCache
+			lncProCache=Main.profInsertUI.getLncPro();
 			
 			Connection conexao;
 			conexao=ConnectionFactory.createConnection();
