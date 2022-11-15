@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import professor.insert.AlunoAndNotasQuery;
 import professor.insert.AlunoAndNotasSyncer;
 import professor.insert.LucasNotasContainerPro;
+import profile.Aluno;
 import main.Main;
 
 public class ProfInsert_AlunosLoadThread extends Thread{
@@ -24,7 +25,7 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 			
 			Connection conexao;
 			conexao=ConnectionFactory.createConnection();
-			String sql="select a.idAluno,a.pessoa_idPessoa,p.nome from aluno as a \r\n"
+			String sql="select a.*,p.nome from aluno as a\r\n"
 					+ "inner join pessoa as p\r\n"
 					+ "on(p.idPessoa=a.pessoa_idPessoa)\r\n"
 					+ "where turma_idTurma=?;";
@@ -37,6 +38,8 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 			
 			int i=0;
 			while(rs1.next()) {
+				Aluno aluno=new Aluno();
+				
 				AlunoAndNotasQuery aAndNQuery=new AlunoAndNotasQuery(
 						rs1.getInt(1),
 						rs1.getString(2),
@@ -84,7 +87,7 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 			conexao.close();
 			
 			//AlunoAndNotasSyncer
-			Main.profInsertUI.getTable().getModel().addTableModelListener(new AlunoAndNotasSyncer());
+			//Main.profInsertUI.getTable().getModel().addTableModelListener(new AlunoAndNotasSyncer());
 		}
 		catch(Exception e) {
 			JOptionPane.showMessageDialog(null,"ERRO DB!"+e.getMessage());
