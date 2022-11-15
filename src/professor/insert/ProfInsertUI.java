@@ -66,9 +66,9 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 					aAndNList.removeAll(aAndNList);
 
 					//Settando a materia atual 
-					int jcbIndex=Main.profInsertUI.getJcbMateria().getSelectedIndex();
-					Main.profInsertUI.setIdMateriaAtual(
-							Main.profInsertUI.getmAndPList().get(jcbIndex).getIdMateria());
+					//int jcbIndex=Main.profInsertUI.getJcbMateria().getSelectedIndex();
+					//Main.profInsertUI.setIdMateriaAtual(
+					//		Main.profInsertUI.getmAndPList().get(jcbIndex).getIdMateria());
 					
 					Main.dbMain.profInsert_AlunosLoad();
 				}
