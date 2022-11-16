@@ -15,6 +15,8 @@ import main.Main;
 import mainMenu.MainMenuPanel;
 import professor.mainMenu.ProfMainMenuPanel;
 import professor.profile.Professor;
+import profile.Aluno;
+
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
@@ -35,6 +37,7 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 	private LucasNotasContainerPro lncPro=new LucasNotasContainerPro();
 	private ArrayList<Materia> listaMateria=new ArrayList<Materia>();;
 	private ArrayList<Professor> listaProf=new ArrayList<Professor>();;
+	private ArrayList<Aluno> listaAluno=new ArrayList<Aluno>();
 	
 	public ProfInsertUI() {
 		setTitle("Accendo - Inserir Notas");
@@ -270,5 +273,13 @@ public class ProfInsertUI extends BigTableUIMasterClass{
 
 	public void setLncPro(LucasNotasContainerPro lncPro) {
 		this.lncPro = lncPro;
+	}
+
+	public ArrayList<Aluno> getListaAluno() {
+		return listaAluno;
+	}
+
+	public void setListaAluno(ArrayList<Aluno> listaAluno) {
+		this.listaAluno = listaAluno;
 	}
 }

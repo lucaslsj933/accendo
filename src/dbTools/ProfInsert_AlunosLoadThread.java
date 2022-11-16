@@ -39,25 +39,27 @@ public class ProfInsert_AlunosLoadThread extends Thread{
 			int i=0;
 			while(rs1.next()) {
 				Aluno aluno=new Aluno();
+				aluno.setIdAluno(rs1.getInt(1));
+				aluno.setIdPessoa(rs1.getString(2));
+				aluno.setEtapa(rs1.getString(3));
+				aluno.setSerie(rs1.getInt(4));
+				aluno.setTurma_idTurma(rs1.getInt(5));
+				aluno.setNome(rs1.getString(6));
 				
-				AlunoAndNotasQuery aAndNQuery=new AlunoAndNotasQuery(
-						rs1.getInt(1),
-						rs1.getString(2),
-						rs1.getString(3)
-						);
+				Main.profInsertUI.getListaAluno().add(aluno);
 				
-				Main.profInsertUI.getaAndNList().add(aAndNQuery);
-				
-				Main.profInsertUI.getTable().getModel().setValueAt(aAndNQuery.getNome(),i,0);
-				Main.profInsertUI.getTable().getModel().setValueAt(aAndNQuery.getPessoa_idPessoa(),i,1);
+				Main.profInsertUI.getTable().getModel().setValueAt(aluno.getNome(),i,0);
+				Main.profInsertUI.getTable().getModel().setValueAt(aluno.getIdPessoa(),i,1);
 				
 				i++;
 			}
 			
 			//Notas
-			int listaSize=Main.profInsertUI.getaAndNList().size();
+			int listaSize=Main.profInsertUI.getListaAluno().size();
 			int idDaLista,taIndex;
-			AlunoAndNotasQuery aAndNTemp;
+			//AlunoAndNotasQuery aAndNTemp;
+			Aluno alunoTemp;
+			
 			int materia_idMateria=Main.profInsertUI.getmAndPList().get(
 					Main.profInsertUI.getJcbMateria().getSelectedIndex()
 					).getIdMateria();
